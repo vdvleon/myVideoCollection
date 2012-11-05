@@ -2,6 +2,7 @@
 #define MyVideoCollection_DownloaderApplication__
 
 #include <Poco/Util/Application.h>
+#include "DownloadStatus.hpp"
 
 namespace MyVideoCollection
 {
