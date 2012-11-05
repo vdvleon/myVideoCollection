@@ -1,6 +1,6 @@
 # Config
 CC = g++
-POCO_PATH = $(pwd)/poco
+POCO_PATH = poco
 
 # Poco
 POCO_INCLUDES  = -I$(POCO_PATH)/Foundation/include
@@ -21,7 +21,7 @@ build:
 	mkdir -p build
 
 lib: build
-	$(BUILD_LIB_OBJECT) build/lib_Downloader.o source/lib/Downloader.cpp
+	$(BUILD_LIB_OBJECT) build/lib_DownloaderApplication.o source/lib/DownloaderApplication.cpp
 
 server: build
 	$(CC) $(INCS) $(LIBS_PATH) -o build/myVideoCollection source/server/main.cpp
