@@ -40,12 +40,12 @@ nzb: build
 
 nzb-test1:
 	rm -R -f data/test1
-	LD_LIBRARY_PATH=:poco/lib/Linux/x86_64:build valgrind ./build/MyVideoCollection-nzb -itest1 -r100 -oserver=newsreader100.eweka.nl -ousername=538209 -opassword=4xqn6w -dtest1.nzb
+	LD_LIBRARY_PATH=:poco/lib/Linux/x86_64:build ./build/MyVideoCollection-nzb -itest1 -r500 -oserver=newsreader100.eweka.nl -ousername=538209 -opassword=4xqn6w -dtest1.nzb
 
 nzb-test2:
 	rm -R -f data/test2
-	LD_LIBRARY_PATH=:poco/lib/Linux/x86_64:build valgrind ./build/MyVideoCollection-nzb -itest2 -r100 -oserver=newsreader100.eweka.nl -ousername=538209 -opassword=4xqn6w -dtest2.nzb
+	LD_LIBRARY_PATH=:poco/lib/Linux/x86_64:build ./build/MyVideoCollection-nzb -itest2 -r500 -oserver=newsreader100.eweka.nl -ousername=538209 -opassword=4xqn6w -dtest2.nzb
 
 nzb-test3:
 	rm -R -f data/test3
-	LD_LIBRARY_PATH=:poco/lib/Linux/x86_64:build valgrind ./build/MyVideoCollection-nzb -itest3 -r100 -oserver=newsreader100.eweka.nl -ousername=538209 -opassword=4xqn6w -dtest3.nzb
+	LD_LIBRARY_PATH=:poco/lib/Linux/x86_64:build ./build/MyVideoCollection-nzb -itest3 -r500 -oserver=newsreader100.eweka.nl -ousername=538209 -opassword=4xqn6w -dtest3.nzb

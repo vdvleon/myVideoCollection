@@ -200,7 +200,7 @@ class NZBApp : public MyVideoCollection::DownloaderApplication
 		
 		static Poco::Int64 int64PartsGlue(Poco::Int64 low, Poco::Int64 high)
 		{
-			return low + (high * (Poco::Int64)4294967296);
+			return low | (high << 32);
 		}
 		
 		void updateStatus(MyVideoCollection::DownloadStatus & status)
