@@ -11,7 +11,7 @@ POCO_LIBS_PATH = $(POCO_PATH)/lib/Linux/x86_64/
 
 # Global
 INCS = $(POCO_INCLUDES) -Iinclude
-LIBS_PATH = -L$(POCO_LIBS_PATH)
+LIBS_PATH = -L$(POCO_LIBS_PATH) -Lbuild
 BUILD_LIB_OBJECT = $(CC) $(INCS) -fPIC -c -o
 
 # Build rules
@@ -27,10 +27,10 @@ lib: build
 	$(CC) -shared -o build/libMyVideoCollection.so build/lib_*.o
 
 server: build
-	$(CC) $(INCS) $(LIBS_PATH) -o build/MyVideoCollection source/server/main.cpp -lMyVideoCollection -lPocoFoundation -lPocoUtil -lPocoNet
+	$(CC) $(INCS) $(LIBS_PATH) -o build/MyVideoCollection source/server/main.cpp -lMyVideoCollection -lPocoFoundation -lPocoUtil -lPocoNet -lPocoXML
 
 torrent: build
-	$(CC) $(INCS) $(LIBS_PATH) -o build/MyVideoCollection-torrent source/torrent/main.cpp
+	$(CC) $(INCS) $(LIBS_PATH) -o build/MyVideoCollection-torrent source/torrent/main.cpp -lMyVideoCollection -lPocoFoundation -lPocoUtil -lPocoNet -lPocoXML
 
 nzb: build
-	$(CC) $(INCS) $(LIBS_PATH) -o build/MyVideoCollection-nzb source/nzb/main.cpp
+	$(CC) $(INCS) $(LIBS_PATH) -o build/MyVideoCollection-nzb source/nzb/main.cpp -lMyVideoCollection -lPocoFoundation -lPocoUtil -lPocoNet -lPocoXML

@@ -17,19 +17,24 @@ namespace MyVideoCollection
 			};
 			
 			DownloaderApplication();
-			int main(const std::vector <std::string> & args);
 			
 		protected:
+			int main(const std::vector <std::string> & args);
+			virtual void init();
+			virtual void deinit();
 			virtual void continueDownload();
 			virtual void pauseDownload();
 			virtual void stopDownload();
 			virtual std::string description() const;
 			virtual void updateStatus(DownloadStatus & status);
+			std::string dataFolder() const;
+			void defineOptions(Poco::Util::OptionSet & options);
 		
 		private:
-			void defineOptions(Poco::Util::OptionSet & options);
 			void handleHelp(const std::string& name, const std::string& value);
+			void handleDownloadOption(const std::string& name, const std::string& value);
 			
+			Poco::Path dataFolder_;
 			bool help_;
 	};
 };
