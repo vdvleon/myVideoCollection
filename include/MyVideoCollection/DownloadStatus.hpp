@@ -23,6 +23,7 @@ namespace MyVideoCollection
 		double progress; // progress in percentage
 		std::size_t size; // loaded size in bytes
 		std::size_t total; // total size in bytes
+		std::size_t remainingTime; // in seconds
 		
 		// Functions
 		DownloadStatus();

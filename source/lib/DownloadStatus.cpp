@@ -9,12 +9,13 @@ namespace MyVideoCollection
 		downloadSpeed(0),
 		progress(0.0),
 		size(0),
-		total(0)
+		total(0),
+		remainingTime(0)
 	{}
 	
 	void DownloadStatus::write(std::ostream & out)
 	{
-		out << (short)status << " " << downloadSpeed << " " << std::showpoint << progress << " " << size << " " << total << std::endl << std::flush;
+		out << (short)status << " " << downloadSpeed << " " << std::showpoint << progress << " " << size << " " << total << " " << remainingTime << std::endl << std::flush;
 	}
 	
 	void DownloadStatus::read(std::istream & in)
@@ -24,10 +25,10 @@ namespace MyVideoCollection
 		std::getline(in, line);
 		
 		// Parse status
-		Poco::RegularExpression regex("^(\\d+) (\\d+) (\\d+\\.\\d+) (\\d+) (\\d+)$");
+		Poco::RegularExpression regex("^(\\d+) (\\d+) (\\d+\\.\\d+) (\\d+) (\\d+) (\\d+)$");
 		Poco::RegularExpression::MatchVec m;
 		regex.match(line, 0, m);
-		if (m.size() == 6)
+		if (m.size() == 7)
 		{
 			// Status
 			switch (Poco::NumberParser::parse(line.substr(m[1].offset, m[1].length)))
@@ -51,6 +52,9 @@ namespace MyVideoCollection
 			
 			// Total
 			total = Poco::NumberParser::parseUnsigned64(line.substr(m[5].offset, m[5].length));
+			
+			// Total
+			remainingTime = Poco::NumberParser::parseUnsigned64(line.substr(m[6].offset, m[6].length));
 		}
 	}
 };
