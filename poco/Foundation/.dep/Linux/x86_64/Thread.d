@@ -1,4 +1,4 @@
-/home/leon/myVideoCollection/poco/Foundation/obj/Linux/x86_64/debug_static/Thread.o /home/leon/myVideoCollection/poco/Foundation/obj/Linux/x86_64/release_static/Thread.o /home/leon/myVideoCollection/poco/Foundation/obj/Linux/x86_64/debug_shared/Thread.o /home/leon/myVideoCollection/poco/Foundation/obj/Linux/x86_64/release_shared/Thread.o: src/Thread.cpp include/Poco/Thread.h include/Poco/Foundation.h \
+/home/leon/MyVideoCollection/poco/Foundation/obj/Linux/x86_64/debug_static/Thread.o /home/leon/MyVideoCollection/poco/Foundation/obj/Linux/x86_64/release_static/Thread.o /home/leon/MyVideoCollection/poco/Foundation/obj/Linux/x86_64/debug_shared/Thread.o /home/leon/MyVideoCollection/poco/Foundation/obj/Linux/x86_64/release_shared/Thread.o: src/Thread.cpp include/Poco/Thread.h include/Poco/Foundation.h \
  include/Poco/Config.h include/Poco/Platform.h \
  include/Poco/Platform_POSIX.h include/Poco/Bugcheck.h \
  include/Poco/Types.h include/Poco/Mutex.h include/Poco/Exception.h \

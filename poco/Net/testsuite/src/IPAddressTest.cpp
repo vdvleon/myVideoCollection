@@ -68,27 +68,39 @@ void IPAddressTest::testStringConv()
 	IPAddress ia4("0.0.0.0");
 	assert (ia4.family() == IPAddress::IPv4);
 	assert (ia4.toString() == "0.0.0.0");
+
+	IPAddress ia5(24,  IPAddress::IPv4);
+	assert (ia5.family() == IPAddress::IPv4);
+	assert (ia5.toString() == "255.255.255.0");
 }
 
 
 void IPAddressTest::testStringConv6()
 {
 #ifdef POCO_HAVE_IPv6
-	IPAddress ia1("1080:0:0:0:8:600:200A:425C");
+	IPAddress ia1("1080:0:0:0:8:600:200a:425c");
 	assert (ia1.family() == IPAddress::IPv6);
-	assert (ia1.toString() == "1080::8:600:200A:425C");
+	assert (ia1.toString() == "1080::8:600:200a:425c");
 	
 	IPAddress ia2("1080::8:600:200A:425C");
 	assert (ia2.family() == IPAddress::IPv6);
-	assert (ia2.toString() == "1080::8:600:200A:425C");
+	assert (ia2.toString() == "1080::8:600:200a:425c");
 	
 	IPAddress ia3("::192.168.1.120");
 	assert (ia3.family() == IPAddress::IPv6);
 	assert (ia3.toString() == "::192.168.1.120");
 
-	IPAddress ia4("::FFFF:192.168.1.120");
+	IPAddress ia4("::ffff:192.168.1.120");
 	assert (ia4.family() == IPAddress::IPv6);
-	assert (ia4.toString() == "::FFFF:192.168.1.120");
+	assert (ia4.toString() == "::ffff:192.168.1.120");
+
+	IPAddress ia5(64, IPAddress::IPv6);
+	assert (ia5.family() == IPAddress::IPv6);
+	assert (ia5.toString() == "ffff:ffff:ffff:ffff::");
+
+	IPAddress ia6(32, IPAddress::IPv6);
+	assert (ia6.family() == IPAddress::IPv6);
+	assert (ia6.toString() == "ffff:ffff::");
 #endif
 }
 
@@ -393,7 +405,7 @@ void IPAddressTest::testClassification6()
 	assert (!ip10.isOrgLocalMC());
 	assert (!ip10.isGlobalMC());
 
-	IPAddress ip6("fec0::21f:5bff:fec6:6707"); // site local unicast
+	IPAddress ip6("fec0::21f:5bff:fec6:6707"); // site local unicast (RFC 4291)
 	assert (!ip6.isWildcard());
 	assert (!ip6.isBroadcast());
 	assert (!ip6.isLoopback());
@@ -407,6 +419,21 @@ void IPAddressTest::testClassification6()
 	assert (!ip6.isSiteLocalMC());
 	assert (!ip6.isOrgLocalMC());
 	assert (!ip6.isGlobalMC());
+
+	IPAddress ip7("fc00::21f:5bff:fec6:6707"); // site local unicast (RFC 4193)
+	assert (!ip7.isWildcard());
+	assert (!ip7.isBroadcast());
+	assert (!ip7.isLoopback());
+	assert (!ip7.isMulticast());
+	assert (ip7.isUnicast());
+	assert (!ip7.isLinkLocal());
+	assert (ip7.isSiteLocal());
+	assert (!ip7.isWellKnownMC());
+	assert (!ip7.isNodeLocalMC());
+	assert (!ip7.isLinkLocalMC());
+	assert (!ip7.isSiteLocalMC());
+	assert (!ip7.isOrgLocalMC());
+	assert (!ip7.isGlobalMC());
 #endif
 }
 
@@ -429,7 +456,7 @@ void IPAddressTest::testMCClassification6()
 	assert (!ip1.isOrgLocalMC());
 	assert (!ip1.isGlobalMC());
 
-	IPAddress ip2("FF01:0:0:0:0:0:0:FB"); // node-local unicast
+	IPAddress ip2("ff01:0:0:0:0:0:0:FB"); // node-local unicast
 	assert (!ip2.isWildcard());
 	assert (!ip2.isBroadcast());
 	assert (!ip2.isLoopback());
@@ -444,7 +471,7 @@ void IPAddressTest::testMCClassification6()
 	assert (!ip2.isOrgLocalMC());
 	assert (!ip2.isGlobalMC()); 
 
-	IPAddress ip3("FF05:0:0:0:0:0:0:FB"); // site local unicast
+	IPAddress ip3("ff05:0:0:0:0:0:0:FB"); // site local unicast
 	assert (!ip3.isWildcard());
 	assert (!ip3.isBroadcast());
 	assert (!ip3.isLoopback());
@@ -459,7 +486,7 @@ void IPAddressTest::testMCClassification6()
 	assert (!ip3.isOrgLocalMC());
 	assert (!ip3.isGlobalMC());
 
-	IPAddress ip4("FF18:0:0:0:0:0:0:FB"); // org local unicast
+	IPAddress ip4("ff18:0:0:0:0:0:0:FB"); // org local unicast
 	assert (!ip4.isWildcard());
 	assert (!ip4.isBroadcast());
 	assert (!ip4.isLoopback());
@@ -474,7 +501,7 @@ void IPAddressTest::testMCClassification6()
 	assert (ip4.isOrgLocalMC());
 	assert (!ip4.isGlobalMC());
 
-	IPAddress ip5("FF1F:0:0:0:0:0:0:FB"); // global unicast
+	IPAddress ip5("ff1f:0:0:0:0:0:0:FB"); // global unicast
 	assert (!ip5.isWildcard());
 	assert (!ip5.isBroadcast());
 	assert (!ip5.isLoopback());
@@ -536,10 +563,81 @@ void IPAddressTest::testBroadcast()
 }
 
 
+void IPAddressTest::testPrefixCons()
+{
+	IPAddress ia1(15, IPAddress::IPv4);
+	assert(ia1.toString() == "255.254.0.0");
+
+#ifdef POCO_HAVE_IPv6
+	IPAddress ia2(62, IPAddress::IPv6);
+	assert(ia2.toString() == "ffff:ffff:ffff:fffc::");
+#endif
+}
+
+
+void IPAddressTest::testPrefixLen()
+{
+	IPAddress ia1(15, IPAddress::IPv4);
+	assert(ia1.prefixLength() == 15);
+
+	IPAddress ia2(16, IPAddress::IPv4);
+	assert(ia2.prefixLength() == 16);
+
+	IPAddress ia3(23, IPAddress::IPv4);
+	assert(ia3.prefixLength() == 23);
+
+	IPAddress ia4(24, IPAddress::IPv4);
+	assert(ia4.prefixLength() == 24);
+
+	IPAddress ia5(25, IPAddress::IPv4);
+	assert(ia5.prefixLength() == 25);
+
+#ifdef POCO_HAVE_IPv6
+	IPAddress ia6(62, IPAddress::IPv6);
+	assert(ia6.prefixLength() == 62);
+
+	IPAddress ia7(63, IPAddress::IPv6);
+	assert(ia7.prefixLength() == 63);
+
+	IPAddress ia8(64, IPAddress::IPv6);
+	assert(ia8.prefixLength() == 64);
+
+	IPAddress ia9(65, IPAddress::IPv6);
+	assert(ia9.prefixLength() == 65);
+#endif
+}
+
+
+void IPAddressTest::testOperators()
+{
+	IPAddress ip("10.0.0.51");
+	IPAddress mask(24, IPAddress::IPv4);
+
+	IPAddress net = ip & mask;
+	assert(net.toString() == "10.0.0.0");
+
+	IPAddress host("0.0.0.51");
+	assert((net | host) == ip);
+
+	assert((~mask).toString() == "0.0.0.255");
+}
+
+
 void IPAddressTest::testRelationals6()
 {
 #ifdef POCO_HAVE_IPv6
 #endif
+}
+
+
+void IPAddressTest::testByteOrderMacros()
+{
+	Poco::UInt16 a16 = 0xDEAD;
+	assert (poco_ntoh_16(a16) == ntohs(a16));
+	assert (poco_hton_16(a16) == htons(a16));
+	Poco::UInt32 a32 = 0xDEADBEEF;
+	assert (poco_ntoh_32(a32) == ntohl(a32));
+	assert (poco_hton_32(a32) == htonl(a32));
 }
 
 
@@ -568,6 +666,10 @@ CppUnit::Test* IPAddressTest::suite()
 	CppUnit_addTest(pSuite, IPAddressTest, testRelationals6);
 	CppUnit_addTest(pSuite, IPAddressTest, testWildcard);
 	CppUnit_addTest(pSuite, IPAddressTest, testBroadcast);
+	CppUnit_addTest(pSuite, IPAddressTest, testPrefixCons);
+	CppUnit_addTest(pSuite, IPAddressTest, testPrefixLen);
+	CppUnit_addTest(pSuite, IPAddressTest, testOperators);
+	CppUnit_addTest(pSuite, IPAddressTest, testByteOrderMacros);
 
 	return pSuite;
 }

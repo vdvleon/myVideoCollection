@@ -1,7 +1,7 @@
 //
 // NumberFormatter.cpp
 //
-// $Id: //poco/1.4/Foundation/src/NumberFormatter.cpp#5 $
+// $Id: //poco/1.4/Foundation/src/NumberFormatter.cpp#4 $
 //
 // Library: Foundation
 // Package: Core
@@ -53,6 +53,27 @@
 
 
 namespace Poco {
+
+
+std::string NumberFormatter::format(bool value, BoolFormat format)
+{
+	switch(format)
+	{
+		default:
+		case FMT_TRUE_FALSE:
+			if (value == true)
+				return "true";
+			return "false";
+		case FMT_YES_NO:
+			if (value == true)
+				return "yes";
+			return "no";
+		case FMT_ON_OFF:
+			if (value == true)
+				return "on";
+			return "off";
+	}
+}
 
 
 void NumberFormatter::append(std::string& str, int value)

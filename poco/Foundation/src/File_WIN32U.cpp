@@ -1,7 +1,7 @@
 //
 // File_WIN32U.cpp
 //
-// $Id: //poco/1.4/Foundation/src/File_WIN32U.cpp#3 $
+// $Id: //poco/1.4/Foundation/src/File_WIN32U.cpp#1 $
 //
 // Library: Foundation
 // Package: Filesystem
@@ -201,24 +201,11 @@ bool FileImpl::isDeviceImpl() const
 		icompare(_path, "PRN") == 0 ||
 		icompare(_path, "AUX") == 0 ||
 		icompare(_path, "NUL") == 0 ||
-		icompare(_path, "LPT1") == 0 ||
-		icompare(_path, "LPT2") == 0 ||
-		icompare(_path, "LPT3") == 0 ||
-		icompare(_path, "LPT4") == 0 ||
-		icompare(_path, "LPT5") == 0 ||
-		icompare(_path, "LPT6") == 0 ||
-		icompare(_path, "LPT7") == 0 ||
-		icompare(_path, "LPT8") == 0 ||
-		icompare(_path, "LPT9") == 0 ||
-		icompare(_path, "COM1") == 0 ||
-		icompare(_path, "COM2") == 0 ||
-		icompare(_path, "COM3") == 0 ||
-		icompare(_path, "COM4") == 0 ||
-		icompare(_path, "COM5") == 0 ||
-		icompare(_path, "COM6") == 0 ||
-		icompare(_path, "COM7") == 0 ||
-		icompare(_path, "COM8") == 0 ||
-		icompare(_path, "COM9") == 0;
+		( (icompare(_path, 0, 3, "LPT") == 0 || icompare(_path, 0, 3, "COM") == 0) &&
+		   _path.size() == 4 &&
+		   _path[3] > 0x30   &&
+		   isdigit(_path[3])
+		);
 }
 
 

@@ -1,4 +1,4 @@
-/home/leon/myVideoCollection/poco/Foundation/obj/Linux/x86_64/debug_static/LogStream.o /home/leon/myVideoCollection/poco/Foundation/obj/Linux/x86_64/release_static/LogStream.o /home/leon/myVideoCollection/poco/Foundation/obj/Linux/x86_64/debug_shared/LogStream.o /home/leon/myVideoCollection/poco/Foundation/obj/Linux/x86_64/release_shared/LogStream.o: src/LogStream.cpp include/Poco/LogStream.h \
+/home/leon/MyVideoCollection/poco/Foundation/obj/Linux/x86_64/debug_static/LogStream.o /home/leon/MyVideoCollection/poco/Foundation/obj/Linux/x86_64/release_static/LogStream.o /home/leon/MyVideoCollection/poco/Foundation/obj/Linux/x86_64/debug_shared/LogStream.o /home/leon/MyVideoCollection/poco/Foundation/obj/Linux/x86_64/release_shared/LogStream.o: src/LogStream.cpp include/Poco/LogStream.h \
  include/Poco/Foundation.h include/Poco/Config.h include/Poco/Platform.h \
  include/Poco/Platform_POSIX.h include/Poco/Bugcheck.h \
  include/Poco/Types.h include/Poco/Logger.h include/Poco/Channel.h \

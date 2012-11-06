@@ -1,7 +1,7 @@
 //
 // WebSocketImpl.cpp
 //
-// $Id: //poco/1.4/Net/src/WebSocketImpl.cpp#5 $
+// $Id: //poco/1.4/Net/src/WebSocketImpl.cpp#2 $
 //
 // Library: Net
 // Package: WebSocket
@@ -136,6 +136,7 @@ int WebSocketImpl::receiveBytes(void* buffer, int length, int)
 		}
 	}
 	else throw WebSocketException("Incomplete frame received", WebSocket::WS_ERR_INCOMPLETE_FRAME);
+
 	if (n > 0)
 	{
 		n += 2;

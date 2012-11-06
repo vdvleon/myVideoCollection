@@ -1,4 +1,4 @@
-/home/leon/myVideoCollection/poco/Foundation/obj/Linux/x86_64/debug_static/InflatingStream.o /home/leon/myVideoCollection/poco/Foundation/obj/Linux/x86_64/release_static/InflatingStream.o /home/leon/myVideoCollection/poco/Foundation/obj/Linux/x86_64/debug_shared/InflatingStream.o /home/leon/myVideoCollection/poco/Foundation/obj/Linux/x86_64/release_shared/InflatingStream.o: src/InflatingStream.cpp include/Poco/InflatingStream.h \
+/home/leon/MyVideoCollection/poco/Foundation/obj/Linux/x86_64/debug_static/InflatingStream.o /home/leon/MyVideoCollection/poco/Foundation/obj/Linux/x86_64/release_static/InflatingStream.o /home/leon/MyVideoCollection/poco/Foundation/obj/Linux/x86_64/debug_shared/InflatingStream.o /home/leon/MyVideoCollection/poco/Foundation/obj/Linux/x86_64/release_shared/InflatingStream.o: src/InflatingStream.cpp include/Poco/InflatingStream.h \
  include/Poco/Foundation.h include/Poco/Config.h include/Poco/Platform.h \
  include/Poco/Platform_POSIX.h include/Poco/Bugcheck.h \
  include/Poco/Types.h include/Poco/BufferedStreamBuf.h \

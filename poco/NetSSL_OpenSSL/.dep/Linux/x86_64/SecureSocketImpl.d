@@ -1,0 +1,63 @@
+/home/leon/MyVideoCollection/poco/NetSSL_OpenSSL/obj/Linux/x86_64/debug_static/SecureSocketImpl.o /home/leon/MyVideoCollection/poco/NetSSL_OpenSSL/obj/Linux/x86_64/release_static/SecureSocketImpl.o /home/leon/MyVideoCollection/poco/NetSSL_OpenSSL/obj/Linux/x86_64/debug_shared/SecureSocketImpl.o /home/leon/MyVideoCollection/poco/NetSSL_OpenSSL/obj/Linux/x86_64/release_shared/SecureSocketImpl.o: src/SecureSocketImpl.cpp \
+ include/Poco/Net/SecureSocketImpl.h include/Poco/Net/NetSSL.h \
+ /home/leon/MyVideoCollection/poco/Net/include/Poco/Net/Net.h \
+ /home/leon/MyVideoCollection/poco/Foundation/include/Poco/Foundation.h \
+ /home/leon/MyVideoCollection/poco/Foundation/include/Poco/Config.h \
+ /home/leon/MyVideoCollection/poco/Foundation/include/Poco/Platform.h \
+ /home/leon/MyVideoCollection/poco/Foundation/include/Poco/Platform_POSIX.h \
+ /home/leon/MyVideoCollection/poco/Foundation/include/Poco/Bugcheck.h \
+ /home/leon/MyVideoCollection/poco/Foundation/include/Poco/Types.h \
+ /home/leon/MyVideoCollection/poco/Net/include/Poco/Net/SocketImpl.h \
+ /home/leon/MyVideoCollection/poco/Net/include/Poco/Net/SocketDefs.h \
+ /home/leon/MyVideoCollection/poco/Net/include/Poco/Net/SocketAddress.h \
+ /home/leon/MyVideoCollection/poco/Net/include/Poco/Net/IPAddress.h \
+ /home/leon/MyVideoCollection/poco/Foundation/include/Poco/RefCountedObject.h \
+ /home/leon/MyVideoCollection/poco/Foundation/include/Poco/AtomicCounter.h \
+ /home/leon/MyVideoCollection/poco/Foundation/include/Poco/Mutex.h \
+ /home/leon/MyVideoCollection/poco/Foundation/include/Poco/Exception.h \
+ /home/leon/MyVideoCollection/poco/Foundation/include/Poco/ScopedLock.h \
+ /home/leon/MyVideoCollection/poco/Foundation/include/Poco/Mutex_POSIX.h \
+ /home/leon/MyVideoCollection/poco/Foundation/include/Poco/Timespan.h \
+ /home/leon/MyVideoCollection/poco/Foundation/include/Poco/Timestamp.h \
+ include/Poco/Net/Context.h \
+ /home/leon/MyVideoCollection/poco/Crypto/include/Poco/Crypto/X509Certificate.h \
+ /home/leon/MyVideoCollection/poco/Crypto/include/Poco/Crypto/Crypto.h \
+ /home/leon/MyVideoCollection/poco/Crypto/include/Poco/Crypto/OpenSSLInitializer.h \
+ /home/leon/MyVideoCollection/poco/Foundation/include/Poco/DateTime.h \
+ /home/leon/MyVideoCollection/poco/Foundation/include/Poco/SharedPtr.h \
+ /home/leon/MyVideoCollection/poco/Crypto/include/Poco/Crypto/RSAKey.h \
+ /home/leon/MyVideoCollection/poco/Crypto/include/Poco/Crypto/RSAKeyImpl.h \
+ /home/leon/MyVideoCollection/poco/Foundation/include/Poco/AutoPtr.h \
+ include/Poco/Net/X509Certificate.h include/Poco/Net/Session.h \
+ include/Poco/Net/SSLException.h \
+ /home/leon/MyVideoCollection/poco/Net/include/Poco/Net/NetException.h \
+ include/Poco/Net/Utility.h include/Poco/Net/SecureStreamSocket.h \
+ /home/leon/MyVideoCollection/poco/Net/include/Poco/Net/StreamSocket.h \
+ /home/leon/MyVideoCollection/poco/Net/include/Poco/Net/Socket.h \
+ /home/leon/MyVideoCollection/poco/Foundation/include/Poco/FIFOBuffer.h \
+ /home/leon/MyVideoCollection/poco/Foundation/include/Poco/Buffer.h \
+ /home/leon/MyVideoCollection/poco/Foundation/include/Poco/BasicEvent.h \
+ /home/leon/MyVideoCollection/poco/Foundation/include/Poco/AbstractEvent.h \
+ /home/leon/MyVideoCollection/poco/Foundation/include/Poco/SingletonHolder.h \
+ /home/leon/MyVideoCollection/poco/Foundation/include/Poco/ActiveResult.h \
+ /home/leon/MyVideoCollection/poco/Foundation/include/Poco/Event.h \
+ /home/leon/MyVideoCollection/poco/Foundation/include/Poco/Event_POSIX.h \
+ /home/leon/MyVideoCollection/poco/Foundation/include/Poco/ActiveMethod.h \
+ /home/leon/MyVideoCollection/poco/Foundation/include/Poco/ActiveRunnable.h \
+ /home/leon/MyVideoCollection/poco/Foundation/include/Poco/Runnable.h \
+ /home/leon/MyVideoCollection/poco/Foundation/include/Poco/ActiveStarter.h \
+ /home/leon/MyVideoCollection/poco/Foundation/include/Poco/ThreadPool.h \
+ /home/leon/MyVideoCollection/poco/Foundation/include/Poco/Thread.h \
+ /home/leon/MyVideoCollection/poco/Foundation/include/Poco/Thread_POSIX.h \
+ /home/leon/MyVideoCollection/poco/Foundation/include/Poco/SignalHandler.h \
+ /home/leon/MyVideoCollection/poco/Foundation/include/Poco/DefaultStrategy.h \
+ /home/leon/MyVideoCollection/poco/Foundation/include/Poco/NotificationStrategy.h \
+ /home/leon/MyVideoCollection/poco/Foundation/include/Poco/AbstractDelegate.h \
+ /home/leon/MyVideoCollection/poco/Foundation/include/Poco/Format.h \
+ /home/leon/MyVideoCollection/poco/Foundation/include/Poco/Any.h \
+ include/Poco/Net/SecureStreamSocketImpl.h \
+ /home/leon/MyVideoCollection/poco/Net/include/Poco/Net/StreamSocketImpl.h \
+ /home/leon/MyVideoCollection/poco/Net/include/Poco/Net/DNS.h \
+ /home/leon/MyVideoCollection/poco/Net/include/Poco/Net/HostEntry.h \
+ /home/leon/MyVideoCollection/poco/Foundation/include/Poco/NumberFormatter.h \
+ /home/leon/MyVideoCollection/poco/Foundation/include/Poco/NumberParser.h

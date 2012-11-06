@@ -1,7 +1,7 @@
 //
 // WinRegistryConfiguration.cpp
 //
-// $Id: //poco/1.4/Util/src/WinRegistryConfiguration.cpp#4 $
+// $Id: //poco/1.4/Util/src/WinRegistryConfiguration.cpp#3 $
 //
 // Library: Util
 // Package: Windows
@@ -85,6 +85,11 @@ bool WinRegistryConfiguration::getRaw(const std::string& key, std::string& value
 		case WinRegistryKey::REGT_DWORD:
 			value = Poco::NumberFormatter::format(aKey.getInt(keyName));
 			break;
+#if defined(POCO_HAVE_INT64)
+		case WinRegistryKey::REGT_QWORD:
+			value = Poco::NumberFormatter::format(aKey.getInt64(keyName));
+			break;
+#endif
 		default:
 			exists = false;
 		}
@@ -106,7 +111,6 @@ void WinRegistryConfiguration::enumerate(const std::string& key, Keys& range) co
 {
 	std::string keyName;
 	std::string fullPath = _rootPath + convertToRegFormat(key, keyName);
-
 	if (fullPath.empty())
 	{
 		// return all root level keys

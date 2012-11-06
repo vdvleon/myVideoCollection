@@ -52,6 +52,8 @@ public:
 	void testFPE();
 	void testEnvironment();
 	void testBuffer();
+	void testFIFOBufferChar();
+	void testFIFOBufferInt();
 	void testAtomicCounter();
 	void testNullable();
 	void testAscii();
@@ -61,7 +63,15 @@ public:
 
 	static CppUnit::Test* suite();
 
+protected:
+	void onReadable(bool& b);
+	void onWritable(bool& b);
+
 private:
+	int _readableToNot;
+	int _notToReadable;
+	int _writableToNot;
+	int _notToWritable;
 };
 
 

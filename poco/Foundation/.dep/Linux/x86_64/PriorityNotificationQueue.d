@@ -1,4 +1,4 @@
-/home/leon/myVideoCollection/poco/Foundation/obj/Linux/x86_64/debug_static/PriorityNotificationQueue.o /home/leon/myVideoCollection/poco/Foundation/obj/Linux/x86_64/release_static/PriorityNotificationQueue.o /home/leon/myVideoCollection/poco/Foundation/obj/Linux/x86_64/debug_shared/PriorityNotificationQueue.o /home/leon/myVideoCollection/poco/Foundation/obj/Linux/x86_64/release_shared/PriorityNotificationQueue.o: src/PriorityNotificationQueue.cpp \
+/home/leon/MyVideoCollection/poco/Foundation/obj/Linux/x86_64/debug_static/PriorityNotificationQueue.o /home/leon/MyVideoCollection/poco/Foundation/obj/Linux/x86_64/release_static/PriorityNotificationQueue.o /home/leon/MyVideoCollection/poco/Foundation/obj/Linux/x86_64/debug_shared/PriorityNotificationQueue.o /home/leon/MyVideoCollection/poco/Foundation/obj/Linux/x86_64/release_shared/PriorityNotificationQueue.o: src/PriorityNotificationQueue.cpp \
  include/Poco/PriorityNotificationQueue.h include/Poco/Foundation.h \
  include/Poco/Config.h include/Poco/Platform.h \
  include/Poco/Platform_POSIX.h include/Poco/Bugcheck.h \

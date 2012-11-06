@@ -1,7 +1,7 @@
 //
 // HTTPResponseTest.cpp
 //
-// $Id: //poco/1.4/Net/testsuite/src/HTTPResponseTest.cpp#3 $
+// $Id: //poco/1.4/Net/testsuite/src/HTTPResponseTest.cpp#2 $
 //
 // Copyright (c) 2005-2006, Applied Informatics Software Engineering GmbH.
 // and Contributors.
@@ -120,6 +120,7 @@ void HTTPResponseTest::testRead3()
 	assert (response.getContentLength() == 0);
 	assert (istr.get() == -1);
 }
+
 
 void HTTPResponseTest::testInvalid1()
 {

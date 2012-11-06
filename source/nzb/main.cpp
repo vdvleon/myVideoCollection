@@ -104,7 +104,7 @@ class NZBApp : public MyVideoCollection::DownloaderApplication
 			}
 		}
 		
-		bool sendCommandJSON(const std::string & method, std::map<std::string, Poco::Int64> & output, const std::vector<std::string> & params = std::vector<std::string>())
+		bool sendCommandJSON(const std::string & method, Poco::Dynamic::Var & output, const std::vector<std::string> & params = std::vector<std::string>())
 		{
 			// Create request
 			Poco::Net::HTTPRequest request(Poco::Net::HTTPRequest::HTTP_POST, "/jsonrpc");
@@ -141,30 +141,16 @@ class NZBApp : public MyVideoCollection::DownloaderApplication
 				response_ << std::string(buf, gcount);
 			}
 			
-			// Handle response
-			Poco::RegularExpression regex("^\"([^\"]+)\"\\s*:\\s*(true|false|-?\\d+),?$");
-			Poco::RegularExpression::MatchVec m;
-			while (response_.good())
+			// Parse JSON
+			output = JSON::parse(response_);
+			
+			// Result?
+			if (!output.isStruct() || !output["result"].isStruct())
 			{
-				std::string line;
-				std::getline(response_, line);
-				regex.match(line, 0, m);
-				if (m.size() == 3)
-				{
-					if (line.substr(m[2].offset, m[2].length) == "true")
-					{
-						output[line.substr(m[1].offset, m[1].length)] = 1;
-					}
-					else if (line.substr(m[2].offset, m[2].length) == "false")
-					{
-						output[line.substr(m[1].offset, m[1].length)] = 0;
-					}
-					else
-					{
-						output[line.substr(m[1].offset, m[1].length)] = Poco::NumberParser::parse64(line.substr(m[2].offset, m[2].length));
-					}
-				}
+				output = Poco::Dynamic::Var();
+				return false;
 			}
+			output = output["result"];
 			
 			return true;
 		}
@@ -194,31 +180,18 @@ class NZBApp : public MyVideoCollection::DownloaderApplication
 			// TODO
 		}
 		
-		static Poco::Int64 get(const std::map<std::string, Poco::Int64> & result, const std::string & key, Poco::Int64 dflt = 0)
-		{
-			std::map<std::string, Poco::Int64>::const_iterator it = result.find(key);
-			if (it == result.end())
-			{
-				return dflt;
-			}
-			return it->second;
-		}
-		
 		void updateStatus(MyVideoCollection::DownloadStatus & status)
 		{
 			// Get status
-			std::map<std::string, Poco::Int64> result;
+			Poco::Dynamic::Var result, result2;
 			sendCommandJSON("status", result);
-			
-			// List groups
-			std::map<std::string, Poco::Int64> result2;
 			sendCommandJSON("listgroups", result2);
 			
 			// Status
 			// status.status =
 			
 			// Speed
-			status.downloadSpeed = get(result, "DownloadRate");
+			status.downloadSpeed = result["DownloadRate"];
 			
 			// Total
 			status.total = status.size + get(result2, "FileSizeLo") | get(result2, "FileSizeHi") << 32;

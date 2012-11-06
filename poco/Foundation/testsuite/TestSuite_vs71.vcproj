@@ -21,7 +21,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="0"
 				AdditionalIncludeDirectories="..\include;..\..\CppUnit\include;..\..\CppUnit\WinTestRunner\include"
-				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;POCO_DLL;WINVER=0x0500"
+				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;POCO_DLL;WINVER=0x0501"
 				StringPooling="TRUE"
 				MinimalRebuild="TRUE"
 				BasicRuntimeChecks="3"
@@ -86,7 +86,7 @@
 				OmitFramePointers="TRUE"
 				OptimizeForWindowsApplication="TRUE"
 				AdditionalIncludeDirectories="..\include;..\..\CppUnit\include;..\..\CppUnit\WinTestRunner\include"
-				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;POCO_DLL;WINVER=0x0500"
+				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;POCO_DLL;WINVER=0x0501"
 				StringPooling="TRUE"
 				RuntimeLibrary="2"
 				BufferSecurityCheck="FALSE"
@@ -146,7 +146,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="0"
 				AdditionalIncludeDirectories="..\include;..\..\CppUnit\include;..\..\CppUnit\WinTestRunner\include"
-				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;POCO_STATIC;WINVER=0x0500"
+				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;POCO_STATIC;WINVER=0x0501"
 				StringPooling="TRUE"
 				MinimalRebuild="TRUE"
 				BasicRuntimeChecks="3"
@@ -211,7 +211,7 @@
 				OmitFramePointers="TRUE"
 				OptimizeForWindowsApplication="TRUE"
 				AdditionalIncludeDirectories="..\include;..\..\CppUnit\include;..\..\CppUnit\WinTestRunner\include"
-				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;POCO_STATIC;WINVER=0x0500"
+				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;POCO_STATIC;WINVER=0x0501"
 				StringPooling="TRUE"
 				RuntimeLibrary="2"
 				BufferSecurityCheck="FALSE"
@@ -271,7 +271,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="0"
 				AdditionalIncludeDirectories="..\include;..\..\CppUnit\include;..\..\CppUnit\WinTestRunner\include"
-				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;POCO_STATIC;WINVER=0x0500"
+				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;POCO_STATIC;WINVER=0x0501"
 				StringPooling="TRUE"
 				MinimalRebuild="TRUE"
 				BasicRuntimeChecks="3"
@@ -337,7 +337,7 @@
 				OmitFramePointers="TRUE"
 				OptimizeForWindowsApplication="TRUE"
 				AdditionalIncludeDirectories="..\include;..\..\CppUnit\include;..\..\CppUnit\WinTestRunner\include"
-				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;POCO_STATIC;WINVER=0x0500"
+				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;POCO_STATIC;WINVER=0x0501"
 				StringPooling="TRUE"
 				RuntimeLibrary="0"
 				BufferSecurityCheck="FALSE"
@@ -401,6 +401,9 @@
 					RelativePath=".\src\AnyTest.cpp">
 				</File>
 				<File
+					RelativePath=".\src\ArrayTest.cpp">
+				</File>
+				<File
 					RelativePath=".\src\AutoPtrTest.cpp">
 				</File>
 				<File
@@ -416,10 +419,10 @@
 					RelativePath=".\src\CoreTestSuite.cpp">
 				</File>
 				<File
-					RelativePath=".\src\DynamicAnyTest.cpp">
+					RelativePath=".\src\DynamicFactoryTest.cpp">
 				</File>
 				<File
-					RelativePath=".\src\DynamicFactoryTest.cpp">
+					RelativePath=".\src\FIFOBufferStreamTest.cpp">
 				</File>
 				<File
 					RelativePath=".\src\FormatTest.cpp">
@@ -471,6 +474,9 @@
 					RelativePath=".\src\AnyTest.h">
 				</File>
 				<File
+					RelativePath=".\src\ArrayTest.h">
+				</File>
+				<File
 					RelativePath=".\src\AutoPtrTest.h">
 				</File>
 				<File
@@ -486,10 +492,10 @@
 					RelativePath=".\src\CoreTestSuite.h">
 				</File>
 				<File
-					RelativePath=".\src\DynamicAnyTest.h">
+					RelativePath=".\src\DynamicFactoryTest.h">
 				</File>
 				<File
-					RelativePath=".\src\DynamicFactoryTest.h">
+					RelativePath=".\src\FIFOBufferStreamTest.h">
 				</File>
 				<File
 					RelativePath=".\src\FormatTest.h">
@@ -1383,6 +1389,24 @@
 				</File>
 				<File
 					RelativePath=".\src\SimpleHashTableTest.cpp">
+				</File>
+			</Filter>
+		</Filter>
+		<Filter
+			Name="Dynamic"
+			Filter="">
+			<Filter
+				Name="Source Files"
+				Filter="">
+				<File
+					RelativePath=".\src\VarTest.cpp">
+				</File>
+			</Filter>
+			<Filter
+				Name="Header Files"
+				Filter="">
+				<File
+					RelativePath=".\src\VarTest.h">
 				</File>
 			</Filter>
 		</Filter>

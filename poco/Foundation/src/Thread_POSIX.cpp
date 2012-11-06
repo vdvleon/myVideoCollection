@@ -1,7 +1,7 @@
 //
 // Thread_POSIX.cpp
 //
-// $Id: //poco/1.4/Foundation/src/Thread_POSIX.cpp#8 $
+// $Id: //poco/1.4/Foundation/src/Thread_POSIX.cpp#5 $
 //
 // Library: Foundation
 // Package: Threading
@@ -87,7 +87,7 @@ ThreadImpl::ThreadImpl():
 {
 }
 
-			
+
 ThreadImpl::~ThreadImpl()
 {
 	if (isRunningImpl())
@@ -158,9 +158,9 @@ void ThreadImpl::setStackSizeImpl(int size)
 #ifndef PTHREAD_STACK_MIN
 	_pData->stackSize = 0;
 #else
- 	if (size != 0)
- 	{
-#if defined(__APPLE__)
+	if (size != 0)
+	{
+#if defined(POCO_OS_FAMILY_BSD)
 		// we must round up to a multiple of the memory page size
 		const int PAGE_SIZE = 4096;
 		size = ((size + PAGE_SIZE - 1)/PAGE_SIZE)*PAGE_SIZE;
@@ -187,7 +187,7 @@ void ThreadImpl::startImpl(Runnable& target)
 	{
 		if (0 != pthread_attr_setstacksize(&attributes, _pData->stackSize))
 		{
-			pthread_attr_destroy(&attributes);	
+			pthread_attr_destroy(&attributes);
 			throw SystemException("cannot set thread stack size");
 		}
 	}
@@ -196,12 +196,12 @@ void ThreadImpl::startImpl(Runnable& target)
 	if (pthread_create(&_pData->thread, &attributes, runnableEntry, this))
 	{
 		_pData->pRunnableTarget = 0;
-		pthread_attr_destroy(&attributes);	
+		pthread_attr_destroy(&attributes);
 		throw SystemException("cannot start thread");
 	}
 	pthread_attr_destroy(&attributes);
 
-    if (_pData->policy == SCHED_OTHER)
+	if (_pData->policy == SCHED_OTHER)
 	{
 		if (_pData->prio != PRIO_NORMAL_IMPL)
 		{
@@ -298,7 +298,7 @@ ThreadImpl* ThreadImpl::currentImpl()
 
 ThreadImpl::TIDImpl ThreadImpl::currentTidImpl()
 {
-    return pthread_self();
+	return pthread_self();
 }
 
 

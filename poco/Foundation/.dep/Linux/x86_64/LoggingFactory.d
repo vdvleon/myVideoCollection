@@ -1,4 +1,4 @@
-/home/leon/myVideoCollection/poco/Foundation/obj/Linux/x86_64/debug_static/LoggingFactory.o /home/leon/myVideoCollection/poco/Foundation/obj/Linux/x86_64/release_static/LoggingFactory.o /home/leon/myVideoCollection/poco/Foundation/obj/Linux/x86_64/debug_shared/LoggingFactory.o /home/leon/myVideoCollection/poco/Foundation/obj/Linux/x86_64/release_shared/LoggingFactory.o: src/LoggingFactory.cpp include/Poco/LoggingFactory.h \
+/home/leon/MyVideoCollection/poco/Foundation/obj/Linux/x86_64/debug_static/LoggingFactory.o /home/leon/MyVideoCollection/poco/Foundation/obj/Linux/x86_64/release_static/LoggingFactory.o /home/leon/MyVideoCollection/poco/Foundation/obj/Linux/x86_64/debug_shared/LoggingFactory.o /home/leon/MyVideoCollection/poco/Foundation/obj/Linux/x86_64/release_shared/LoggingFactory.o: src/LoggingFactory.cpp include/Poco/LoggingFactory.h \
  include/Poco/Foundation.h include/Poco/Config.h include/Poco/Platform.h \
  include/Poco/Platform_POSIX.h include/Poco/Bugcheck.h \
  include/Poco/Types.h include/Poco/DynamicFactory.h \

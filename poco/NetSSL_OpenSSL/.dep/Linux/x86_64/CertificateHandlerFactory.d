@@ -1,0 +1,52 @@
+/home/leon/MyVideoCollection/poco/NetSSL_OpenSSL/obj/Linux/x86_64/debug_static/CertificateHandlerFactory.o /home/leon/MyVideoCollection/poco/NetSSL_OpenSSL/obj/Linux/x86_64/release_static/CertificateHandlerFactory.o /home/leon/MyVideoCollection/poco/NetSSL_OpenSSL/obj/Linux/x86_64/debug_shared/CertificateHandlerFactory.o /home/leon/MyVideoCollection/poco/NetSSL_OpenSSL/obj/Linux/x86_64/release_shared/CertificateHandlerFactory.o: src/CertificateHandlerFactory.cpp \
+ include/Poco/Net/CertificateHandlerFactory.h include/Poco/Net/NetSSL.h \
+ /home/leon/MyVideoCollection/poco/Net/include/Poco/Net/Net.h \
+ /home/leon/MyVideoCollection/poco/Foundation/include/Poco/Foundation.h \
+ /home/leon/MyVideoCollection/poco/Foundation/include/Poco/Config.h \
+ /home/leon/MyVideoCollection/poco/Foundation/include/Poco/Platform.h \
+ /home/leon/MyVideoCollection/poco/Foundation/include/Poco/Platform_POSIX.h \
+ /home/leon/MyVideoCollection/poco/Foundation/include/Poco/Bugcheck.h \
+ /home/leon/MyVideoCollection/poco/Foundation/include/Poco/Types.h \
+ include/Poco/Net/SSLManager.h include/Poco/Net/VerificationErrorArgs.h \
+ include/Poco/Net/X509Certificate.h \
+ /home/leon/MyVideoCollection/poco/Net/include/Poco/Net/SocketDefs.h \
+ /home/leon/MyVideoCollection/poco/Crypto/include/Poco/Crypto/X509Certificate.h \
+ /home/leon/MyVideoCollection/poco/Crypto/include/Poco/Crypto/Crypto.h \
+ /home/leon/MyVideoCollection/poco/Crypto/include/Poco/Crypto/OpenSSLInitializer.h \
+ /home/leon/MyVideoCollection/poco/Foundation/include/Poco/Mutex.h \
+ /home/leon/MyVideoCollection/poco/Foundation/include/Poco/Exception.h \
+ /home/leon/MyVideoCollection/poco/Foundation/include/Poco/ScopedLock.h \
+ /home/leon/MyVideoCollection/poco/Foundation/include/Poco/Mutex_POSIX.h \
+ /home/leon/MyVideoCollection/poco/Foundation/include/Poco/DateTime.h \
+ /home/leon/MyVideoCollection/poco/Foundation/include/Poco/Timestamp.h \
+ /home/leon/MyVideoCollection/poco/Foundation/include/Poco/Timespan.h \
+ /home/leon/MyVideoCollection/poco/Foundation/include/Poco/SharedPtr.h \
+ /home/leon/MyVideoCollection/poco/Foundation/include/Poco/AtomicCounter.h \
+ include/Poco/Net/Context.h \
+ /home/leon/MyVideoCollection/poco/Crypto/include/Poco/Crypto/RSAKey.h \
+ /home/leon/MyVideoCollection/poco/Crypto/include/Poco/Crypto/RSAKeyImpl.h \
+ /home/leon/MyVideoCollection/poco/Foundation/include/Poco/RefCountedObject.h \
+ /home/leon/MyVideoCollection/poco/Foundation/include/Poco/AutoPtr.h \
+ include/Poco/Net/PrivateKeyFactoryMgr.h \
+ include/Poco/Net/PrivateKeyFactory.h \
+ include/Poco/Net/CertificateHandlerFactoryMgr.h \
+ include/Poco/Net/InvalidCertificateHandler.h \
+ /home/leon/MyVideoCollection/poco/Util/include/Poco/Util/AbstractConfiguration.h \
+ /home/leon/MyVideoCollection/poco/Util/include/Poco/Util/Util.h \
+ /home/leon/MyVideoCollection/poco/Foundation/include/Poco/BasicEvent.h \
+ /home/leon/MyVideoCollection/poco/Foundation/include/Poco/AbstractEvent.h \
+ /home/leon/MyVideoCollection/poco/Foundation/include/Poco/SingletonHolder.h \
+ /home/leon/MyVideoCollection/poco/Foundation/include/Poco/ActiveResult.h \
+ /home/leon/MyVideoCollection/poco/Foundation/include/Poco/Event.h \
+ /home/leon/MyVideoCollection/poco/Foundation/include/Poco/Event_POSIX.h \
+ /home/leon/MyVideoCollection/poco/Foundation/include/Poco/ActiveMethod.h \
+ /home/leon/MyVideoCollection/poco/Foundation/include/Poco/ActiveRunnable.h \
+ /home/leon/MyVideoCollection/poco/Foundation/include/Poco/Runnable.h \
+ /home/leon/MyVideoCollection/poco/Foundation/include/Poco/ActiveStarter.h \
+ /home/leon/MyVideoCollection/poco/Foundation/include/Poco/ThreadPool.h \
+ /home/leon/MyVideoCollection/poco/Foundation/include/Poco/Thread.h \
+ /home/leon/MyVideoCollection/poco/Foundation/include/Poco/Thread_POSIX.h \
+ /home/leon/MyVideoCollection/poco/Foundation/include/Poco/SignalHandler.h \
+ /home/leon/MyVideoCollection/poco/Foundation/include/Poco/DefaultStrategy.h \
+ /home/leon/MyVideoCollection/poco/Foundation/include/Poco/NotificationStrategy.h \
+ /home/leon/MyVideoCollection/poco/Foundation/include/Poco/AbstractDelegate.h

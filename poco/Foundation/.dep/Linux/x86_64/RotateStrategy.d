@@ -1,4 +1,4 @@
-/home/leon/myVideoCollection/poco/Foundation/obj/Linux/x86_64/debug_static/RotateStrategy.o /home/leon/myVideoCollection/poco/Foundation/obj/Linux/x86_64/release_static/RotateStrategy.o /home/leon/myVideoCollection/poco/Foundation/obj/Linux/x86_64/debug_shared/RotateStrategy.o /home/leon/myVideoCollection/poco/Foundation/obj/Linux/x86_64/release_shared/RotateStrategy.o: src/RotateStrategy.cpp include/Poco/RotateStrategy.h \
+/home/leon/MyVideoCollection/poco/Foundation/obj/Linux/x86_64/debug_static/RotateStrategy.o /home/leon/MyVideoCollection/poco/Foundation/obj/Linux/x86_64/release_static/RotateStrategy.o /home/leon/MyVideoCollection/poco/Foundation/obj/Linux/x86_64/debug_shared/RotateStrategy.o /home/leon/MyVideoCollection/poco/Foundation/obj/Linux/x86_64/release_shared/RotateStrategy.o: src/RotateStrategy.cpp include/Poco/RotateStrategy.h \
  include/Poco/Foundation.h include/Poco/Config.h include/Poco/Platform.h \
  include/Poco/Platform_POSIX.h include/Poco/Bugcheck.h \
  include/Poco/Types.h include/Poco/Timespan.h include/Poco/Timestamp.h \

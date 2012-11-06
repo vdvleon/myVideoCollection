@@ -46,9 +46,8 @@
 namespace Poco {
 
 
-Glob::Glob(const std::string& pattern, int options): 
-	_pattern(pattern),
-	_options(options)
+Glob::Glob(const std::string& pattern, int options)
+	: _pattern(pattern), _options(options)
 {
 }
 
@@ -96,13 +95,14 @@ void Glob::glob(const Path& pathPattern, std::set<std::string>& files, int optio
 	// (which must not contain wildcards), otherwise collect() will fail
 	// as one cannot create a DirectoryIterator with only a node name ("\\srv\").
 	int minDepth = base.getNode().empty() ? 0 : 1;
-	while (base.depth() > minDepth && base[base.depth() - 1] != "..") 
+	while (base.depth() > minDepth && base[base.depth() - 1] != "..")
 	{
 		base.popDirectory();
 		absBase.popDirectory();
 	}
-	if (pathPattern.isDirectory()) options |= GLOB_DIRS_ONLY;
-	collect(pattern, absBase, base, pathPattern[base.depth()], files, options);		
+	if (pathPattern.isDirectory())
+		options |= GLOB_DIRS_ONLY;
+	collect(pattern, absBase, base, pathPattern[base.depth()], files, options);
 }
 
 

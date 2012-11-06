@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/poco/!svn/ver/2046/poco/trunk/Data/SQLite/include/Poco/Data/SQLite
+END
+Connector.h
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/poco/!svn/ver/1801/poco/trunk/Data/SQLite/include/Poco/Data/SQLite/Connector.h
+END
+Extractor.h
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/poco/!svn/ver/2040/poco/trunk/Data/SQLite/include/Poco/Data/SQLite/Extractor.h
+END
+SQLiteException.h
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svnroot/poco/!svn/ver/1801/poco/trunk/Data/SQLite/include/Poco/Data/SQLite/SQLiteException.h
+END
+SQLite.h
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/poco/!svn/ver/2046/poco/trunk/Data/SQLite/include/Poco/Data/SQLite/SQLite.h
+END
+Binder.h
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/poco/!svn/ver/2024/poco/trunk/Data/SQLite/include/Poco/Data/SQLite/Binder.h
+END
+Utility.h
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/poco/!svn/ver/1801/poco/trunk/Data/SQLite/include/Poco/Data/SQLite/Utility.h
+END
+SessionImpl.h
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/poco/!svn/ver/1801/poco/trunk/Data/SQLite/include/Poco/Data/SQLite/SessionImpl.h
+END
+SQLiteStatementImpl.h
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svnroot/poco/!svn/ver/1801/poco/trunk/Data/SQLite/include/Poco/Data/SQLite/SQLiteStatementImpl.h
+END

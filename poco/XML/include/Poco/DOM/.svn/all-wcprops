@@ -1,0 +1,251 @@
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svnroot/poco/!svn/ver/1801/poco/trunk/XML/include/Poco/DOM
+END
+Element.h
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/poco/!svn/ver/1801/poco/trunk/XML/include/Poco/DOM/Element.h
+END
+Notation.h
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svnroot/poco/!svn/ver/1801/poco/trunk/XML/include/Poco/DOM/Notation.h
+END
+DOMException.h
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/poco/!svn/ver/1801/poco/trunk/XML/include/Poco/DOM/DOMException.h
+END
+EventException.h
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/poco/!svn/ver/1801/poco/trunk/XML/include/Poco/DOM/EventException.h
+END
+ElementsByTagNameList.h
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/poco/!svn/ver/1801/poco/trunk/XML/include/Poco/DOM/ElementsByTagNameList.h
+END
+MutationEvent.h
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/poco/!svn/ver/1801/poco/trunk/XML/include/Poco/DOM/MutationEvent.h
+END
+DocumentFragment.h
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/poco/!svn/ver/1801/poco/trunk/XML/include/Poco/DOM/DocumentFragment.h
+END
+NodeAppender.h
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/poco/!svn/ver/1801/poco/trunk/XML/include/Poco/DOM/NodeAppender.h
+END
+Attr.h
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svnroot/poco/!svn/ver/1801/poco/trunk/XML/include/Poco/DOM/Attr.h
+END
+Document.h
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svnroot/poco/!svn/ver/1801/poco/trunk/XML/include/Poco/DOM/Document.h
+END
+ProcessingInstruction.h
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/poco/!svn/ver/1801/poco/trunk/XML/include/Poco/DOM/ProcessingInstruction.h
+END
+Event.h
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svnroot/poco/!svn/ver/1801/poco/trunk/XML/include/Poco/DOM/Event.h
+END
+NodeList.h
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svnroot/poco/!svn/ver/1801/poco/trunk/XML/include/Poco/DOM/NodeList.h
+END
+DOMImplementation.h
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/poco/!svn/ver/1801/poco/trunk/XML/include/Poco/DOM/DOMImplementation.h
+END
+Node.h
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svnroot/poco/!svn/ver/1801/poco/trunk/XML/include/Poco/DOM/Node.h
+END
+CharacterData.h
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/poco/!svn/ver/1801/poco/trunk/XML/include/Poco/DOM/CharacterData.h
+END
+DOMBuilder.h
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/poco/!svn/ver/1801/poco/trunk/XML/include/Poco/DOM/DOMBuilder.h
+END
+NamedNodeMap.h
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/poco/!svn/ver/1801/poco/trunk/XML/include/Poco/DOM/NamedNodeMap.h
+END
+EventTarget.h
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svnroot/poco/!svn/ver/1801/poco/trunk/XML/include/Poco/DOM/EventTarget.h
+END
+EventDispatcher.h
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/poco/!svn/ver/1801/poco/trunk/XML/include/Poco/DOM/EventDispatcher.h
+END
+EntityReference.h
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/poco/!svn/ver/1801/poco/trunk/XML/include/Poco/DOM/EntityReference.h
+END
+NodeFilter.h
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/poco/!svn/ver/1801/poco/trunk/XML/include/Poco/DOM/NodeFilter.h
+END
+DOMParser.h
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svnroot/poco/!svn/ver/1801/poco/trunk/XML/include/Poco/DOM/DOMParser.h
+END
+AutoPtr.h
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/poco/!svn/ver/1801/poco/trunk/XML/include/Poco/DOM/AutoPtr.h
+END
+NodeIterator.h
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/poco/!svn/ver/1801/poco/trunk/XML/include/Poco/DOM/NodeIterator.h
+END
+CDATASection.h
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/poco/!svn/ver/1801/poco/trunk/XML/include/Poco/DOM/CDATASection.h
+END
+Comment.h
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/poco/!svn/ver/1801/poco/trunk/XML/include/Poco/DOM/Comment.h
+END
+TreeWalker.h
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/poco/!svn/ver/1801/poco/trunk/XML/include/Poco/DOM/TreeWalker.h
+END
+DOMObject.h
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svnroot/poco/!svn/ver/1801/poco/trunk/XML/include/Poco/DOM/DOMObject.h
+END
+AttrMap.h
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/poco/!svn/ver/1801/poco/trunk/XML/include/Poco/DOM/AttrMap.h
+END
+ChildNodesList.h
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/poco/!svn/ver/1801/poco/trunk/XML/include/Poco/DOM/ChildNodesList.h
+END
+DTDMap.h
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svnroot/poco/!svn/ver/1801/poco/trunk/XML/include/Poco/DOM/DTDMap.h
+END
+AbstractNode.h
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/poco/!svn/ver/1801/poco/trunk/XML/include/Poco/DOM/AbstractNode.h
+END
+DOMSerializer.h
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/poco/!svn/ver/1801/poco/trunk/XML/include/Poco/DOM/DOMSerializer.h
+END
+Entity.h
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svnroot/poco/!svn/ver/1801/poco/trunk/XML/include/Poco/DOM/Entity.h
+END
+AbstractContainerNode.h
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/poco/!svn/ver/1801/poco/trunk/XML/include/Poco/DOM/AbstractContainerNode.h
+END
+DOMWriter.h
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svnroot/poco/!svn/ver/1801/poco/trunk/XML/include/Poco/DOM/DOMWriter.h
+END
+DocumentType.h
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/poco/!svn/ver/1801/poco/trunk/XML/include/Poco/DOM/DocumentType.h
+END
+DocumentEvent.h
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/poco/!svn/ver/1801/poco/trunk/XML/include/Poco/DOM/DocumentEvent.h
+END
+Text.h
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svnroot/poco/!svn/ver/1801/poco/trunk/XML/include/Poco/DOM/Text.h
+END
+EventListener.h
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/poco/!svn/ver/1801/poco/trunk/XML/include/Poco/DOM/EventListener.h
+END

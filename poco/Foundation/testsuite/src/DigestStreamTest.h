@@ -49,6 +49,7 @@ public:
 	void testInputStream();
 	void testOutputStream1();
 	void testOutputStream2();
+	void testToFromHex();
 
 	void setUp();
 	void tearDown();

@@ -1,0 +1,95 @@
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svnroot/poco/!svn/ver/2060/poco/trunk/Crypto/include/Poco/Crypto
+END
+CryptoStream.h
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/poco/!svn/ver/1801/poco/trunk/Crypto/include/Poco/Crypto/CryptoStream.h
+END
+CipherImpl.h
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/poco/!svn/ver/1801/poco/trunk/Crypto/include/Poco/Crypto/CipherImpl.h
+END
+RSAKey.h
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/poco/!svn/ver/1801/poco/trunk/Crypto/include/Poco/Crypto/RSAKey.h
+END
+RSACipherImpl.h
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/poco/!svn/ver/1801/poco/trunk/Crypto/include/Poco/Crypto/RSACipherImpl.h
+END
+CipherFactory.h
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/poco/!svn/ver/1801/poco/trunk/Crypto/include/Poco/Crypto/CipherFactory.h
+END
+DigestEngine.h
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/poco/!svn/ver/2060/poco/trunk/Crypto/include/Poco/Crypto/DigestEngine.h
+END
+CipherKeyImpl.h
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/poco/!svn/ver/1828/poco/trunk/Crypto/include/Poco/Crypto/CipherKeyImpl.h
+END
+X509Certificate.h
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/poco/!svn/ver/1801/poco/trunk/Crypto/include/Poco/Crypto/X509Certificate.h
+END
+Cipher.h
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/poco/!svn/ver/1801/poco/trunk/Crypto/include/Poco/Crypto/Cipher.h
+END
+RSADigestEngine.h
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/poco/!svn/ver/1888/poco/trunk/Crypto/include/Poco/Crypto/RSADigestEngine.h
+END
+CryptoTransform.h
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/poco/!svn/ver/1828/poco/trunk/Crypto/include/Poco/Crypto/CryptoTransform.h
+END
+RSAKeyImpl.h
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/poco/!svn/ver/1801/poco/trunk/Crypto/include/Poco/Crypto/RSAKeyImpl.h
+END
+Crypto.h
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/poco/!svn/ver/1801/poco/trunk/Crypto/include/Poco/Crypto/Crypto.h
+END
+CipherKey.h
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/poco/!svn/ver/1801/poco/trunk/Crypto/include/Poco/Crypto/CipherKey.h
+END
+OpenSSLInitializer.h
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/poco/!svn/ver/1801/poco/trunk/Crypto/include/Poco/Crypto/OpenSSLInitializer.h
+END

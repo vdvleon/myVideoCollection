@@ -1,0 +1,143 @@
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svnroot/poco/!svn/ver/2000/poco/trunk/Zip/include/Poco/Zip
+END
+Compress.h
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svnroot/poco/!svn/ver/2000/poco/trunk/Zip/include/Poco/Zip/Compress.h
+END
+ZipUtil.h
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/poco/!svn/ver/1801/poco/trunk/Zip/include/Poco/Zip/ZipUtil.h
+END
+Delete.h
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svnroot/poco/!svn/ver/1801/poco/trunk/Zip/include/Poco/Zip/Delete.h
+END
+Zip.h
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svnroot/poco/!svn/ver/1801/poco/trunk/Zip/include/Poco/Zip/Zip.h
+END
+Decompress.h
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/poco/!svn/ver/1801/poco/trunk/Zip/include/Poco/Zip/Decompress.h
+END
+ZipArchive.h
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/poco/!svn/ver/1801/poco/trunk/Zip/include/Poco/Zip/ZipArchive.h
+END
+Rename.h
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svnroot/poco/!svn/ver/1801/poco/trunk/Zip/include/Poco/Zip/Rename.h
+END
+PartialStream.h
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/poco/!svn/ver/1801/poco/trunk/Zip/include/Poco/Zip/PartialStream.h
+END
+ZipDataInfo.h
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svnroot/poco/!svn/ver/1801/poco/trunk/Zip/include/Poco/Zip/ZipDataInfo.h
+END
+Replace.h
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/poco/!svn/ver/1801/poco/trunk/Zip/include/Poco/Zip/Replace.h
+END
+ZipCommon.h
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svnroot/poco/!svn/ver/1801/poco/trunk/Zip/include/Poco/Zip/ZipCommon.h
+END
+AutoDetectStream.h
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/poco/!svn/ver/1801/poco/trunk/Zip/include/Poco/Zip/AutoDetectStream.h
+END
+ZipStream.h
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svnroot/poco/!svn/ver/1801/poco/trunk/Zip/include/Poco/Zip/ZipStream.h
+END
+ZipManipulator.h
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/poco/!svn/ver/1801/poco/trunk/Zip/include/Poco/Zip/ZipManipulator.h
+END
+ZipFileInfo.h
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svnroot/poco/!svn/ver/1801/poco/trunk/Zip/include/Poco/Zip/ZipFileInfo.h
+END
+ZipArchiveInfo.h
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/poco/!svn/ver/1801/poco/trunk/Zip/include/Poco/Zip/ZipArchiveInfo.h
+END
+ZipException.h
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/poco/!svn/ver/1801/poco/trunk/Zip/include/Poco/Zip/ZipException.h
+END
+SkipCallback.h
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/poco/!svn/ver/1801/poco/trunk/Zip/include/Poco/Zip/SkipCallback.h
+END
+ZipOperation.h
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/poco/!svn/ver/1801/poco/trunk/Zip/include/Poco/Zip/ZipOperation.h
+END
+Keep.h
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svnroot/poco/!svn/ver/1801/poco/trunk/Zip/include/Poco/Zip/Keep.h
+END
+ZipLocalFileHeader.h
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/poco/!svn/ver/1801/poco/trunk/Zip/include/Poco/Zip/ZipLocalFileHeader.h
+END
+ParseCallback.h
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/poco/!svn/ver/1801/poco/trunk/Zip/include/Poco/Zip/ParseCallback.h
+END
+Add.h
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svnroot/poco/!svn/ver/1801/poco/trunk/Zip/include/Poco/Zip/Add.h
+END

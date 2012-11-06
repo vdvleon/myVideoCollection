@@ -1,0 +1,257 @@
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svnroot/poco/!svn/ver/1801/poco/trunk/Foundation/wcelibcex-1.0/src
+END
+wce_access.c
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/poco/!svn/ver/1801/poco/trunk/Foundation/wcelibcex-1.0/src/wce_access.c
+END
+wce_directorymanagement.c
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svnroot/poco/!svn/ver/1801/poco/trunk/Foundation/wcelibcex-1.0/src/wce_directorymanagement.c
+END
+wce_time.h
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/poco/!svn/ver/1801/poco/trunk/Foundation/wcelibcex-1.0/src/wce_time.h
+END
+wce_mkdir.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/poco/!svn/ver/1801/poco/trunk/Foundation/wcelibcex-1.0/src/wce_mkdir.c
+END
+wce_rename.c
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/poco/!svn/ver/1801/poco/trunk/Foundation/wcelibcex-1.0/src/wce_rename.c
+END
+wce_abort.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/poco/!svn/ver/1801/poco/trunk/Foundation/wcelibcex-1.0/src/wce_abort.c
+END
+wce_localtime.c
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/poco/!svn/ver/1801/poco/trunk/Foundation/wcelibcex-1.0/src/wce_localtime.c
+END
+wce_unistd.h
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/poco/!svn/ver/1801/poco/trunk/Foundation/wcelibcex-1.0/src/wce_unistd.h
+END
+wce_rmdir.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/poco/!svn/ver/1801/poco/trunk/Foundation/wcelibcex-1.0/src/wce_rmdir.c
+END
+fcntl.h
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/poco/!svn/ver/1801/poco/trunk/Foundation/wcelibcex-1.0/src/fcntl.h
+END
+wce_direct.h
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/poco/!svn/ver/1801/poco/trunk/Foundation/wcelibcex-1.0/src/wce_direct.h
+END
+wce_asctime.c
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/poco/!svn/ver/1801/poco/trunk/Foundation/wcelibcex-1.0/src/wce_asctime.c
+END
+wce_errno.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/poco/!svn/ver/1801/poco/trunk/Foundation/wcelibcex-1.0/src/wce_errno.c
+END
+wce_rewind.c
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/poco/!svn/ver/1801/poco/trunk/Foundation/wcelibcex-1.0/src/wce_rewind.c
+END
+wce_getenv.c
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/poco/!svn/ver/1801/poco/trunk/Foundation/wcelibcex-1.0/src/wce_getenv.c
+END
+wce_winbase.c
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/poco/!svn/ver/1801/poco/trunk/Foundation/wcelibcex-1.0/src/wce_winbase.c
+END
+wce_errno.h
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/poco/!svn/ver/1801/poco/trunk/Foundation/wcelibcex-1.0/src/wce_errno.h
+END
+wce_clock.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/poco/!svn/ver/1801/poco/trunk/Foundation/wcelibcex-1.0/src/wce_clock.c
+END
+wce_path.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/poco/!svn/ver/1801/poco/trunk/Foundation/wcelibcex-1.0/src/wce_path.c
+END
+wce_timesys.c
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/poco/!svn/ver/1801/poco/trunk/Foundation/wcelibcex-1.0/src/wce_timesys.c
+END
+wce_winbase.h
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/poco/!svn/ver/1801/poco/trunk/Foundation/wcelibcex-1.0/src/wce_winbase.h
+END
+wce_unlink.c
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/poco/!svn/ver/1801/poco/trunk/Foundation/wcelibcex-1.0/src/wce_unlink.c
+END
+wce_ctime.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/poco/!svn/ver/1801/poco/trunk/Foundation/wcelibcex-1.0/src/wce_ctime.c
+END
+wce_getopt.c
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/poco/!svn/ver/1801/poco/trunk/Foundation/wcelibcex-1.0/src/wce_getopt.c
+END
+wce_timesys.h
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/poco/!svn/ver/1801/poco/trunk/Foundation/wcelibcex-1.0/src/wce_timesys.h
+END
+wce_bsearch.c
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/poco/!svn/ver/1801/poco/trunk/Foundation/wcelibcex-1.0/src/wce_bsearch.c
+END
+wce_types.h
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/poco/!svn/ver/1801/poco/trunk/Foundation/wcelibcex-1.0/src/wce_types.h
+END
+wce_stat.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/poco/!svn/ver/1801/poco/trunk/Foundation/wcelibcex-1.0/src/wce_stat.c
+END
+wce_setlocale.c
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/poco/!svn/ver/1801/poco/trunk/Foundation/wcelibcex-1.0/src/wce_setlocale.c
+END
+wce_fcntl.h
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/poco/!svn/ver/1801/poco/trunk/Foundation/wcelibcex-1.0/src/wce_fcntl.h
+END
+wce_string.h
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/poco/!svn/ver/1801/poco/trunk/Foundation/wcelibcex-1.0/src/wce_string.h
+END
+wce_io.h
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/poco/!svn/ver/1801/poco/trunk/Foundation/wcelibcex-1.0/src/wce_io.h
+END
+wce_stat.h
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/poco/!svn/ver/1801/poco/trunk/Foundation/wcelibcex-1.0/src/wce_stat.h
+END
+wce_findfile.c
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/poco/!svn/ver/1801/poco/trunk/Foundation/wcelibcex-1.0/src/wce_findfile.c
+END
+wce_gettimeofday.c
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/poco/!svn/ver/1801/poco/trunk/Foundation/wcelibcex-1.0/src/wce_gettimeofday.c
+END
+wce_strerror.c
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/poco/!svn/ver/1801/poco/trunk/Foundation/wcelibcex-1.0/src/wce_strerror.c
+END
+wce_stdlib.h
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/poco/!svn/ver/1801/poco/trunk/Foundation/wcelibcex-1.0/src/wce_stdlib.h
+END
+wce_mktime.c
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/poco/!svn/ver/1801/poco/trunk/Foundation/wcelibcex-1.0/src/wce_mktime.c
+END
+wce_stdio.h
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/poco/!svn/ver/1801/poco/trunk/Foundation/wcelibcex-1.0/src/wce_stdio.h
+END
+wce_lfind.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/poco/!svn/ver/1801/poco/trunk/Foundation/wcelibcex-1.0/src/wce_lfind.c
+END
+errno.h
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/poco/!svn/ver/1801/poco/trunk/Foundation/wcelibcex-1.0/src/errno.h
+END
+wce_time.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/poco/!svn/ver/1801/poco/trunk/Foundation/wcelibcex-1.0/src/wce_time.c
+END

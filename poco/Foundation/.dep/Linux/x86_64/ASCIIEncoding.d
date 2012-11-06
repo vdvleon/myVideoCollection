@@ -1,4 +1,4 @@
-/home/leon/myVideoCollection/poco/Foundation/obj/Linux/x86_64/debug_static/ASCIIEncoding.o /home/leon/myVideoCollection/poco/Foundation/obj/Linux/x86_64/release_static/ASCIIEncoding.o /home/leon/myVideoCollection/poco/Foundation/obj/Linux/x86_64/debug_shared/ASCIIEncoding.o /home/leon/myVideoCollection/poco/Foundation/obj/Linux/x86_64/release_shared/ASCIIEncoding.o: src/ASCIIEncoding.cpp include/Poco/ASCIIEncoding.h \
+/home/leon/MyVideoCollection/poco/Foundation/obj/Linux/x86_64/debug_static/ASCIIEncoding.o /home/leon/MyVideoCollection/poco/Foundation/obj/Linux/x86_64/release_static/ASCIIEncoding.o /home/leon/MyVideoCollection/poco/Foundation/obj/Linux/x86_64/debug_shared/ASCIIEncoding.o /home/leon/MyVideoCollection/poco/Foundation/obj/Linux/x86_64/release_shared/ASCIIEncoding.o: src/ASCIIEncoding.cpp include/Poco/ASCIIEncoding.h \
  include/Poco/Foundation.h include/Poco/Config.h include/Poco/Platform.h \
  include/Poco/Platform_POSIX.h include/Poco/Bugcheck.h \
  include/Poco/Types.h include/Poco/TextEncoding.h \

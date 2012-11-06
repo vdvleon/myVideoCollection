@@ -1,7 +1,7 @@
 //
 // SocketAddress.cpp
 //
-// $Id: //poco/1.4/Net/src/SocketAddress.cpp#6 $
+// $Id: //poco/1.4/Net/src/SocketAddress.cpp#5 $
 //
 // Library: Net
 // Package: NetCore
@@ -301,9 +301,9 @@ SocketAddress::~SocketAddress()
 
 bool SocketAddress::operator < (const SocketAddress& addr) const
 {
-        if (family() < addr.family()) return true;
-        if (host() < addr.host()) return true;
-        return (port() < addr.port());
+	if (family() < addr.family()) return true;
+	if (host() < addr.host()) return true;
+	return (port() < addr.port());
 }
 
 
@@ -358,11 +358,13 @@ int SocketAddress::af() const
 std::string SocketAddress::toString() const
 {
 	std::string result;
+#if defined(POCO_HAVE_IPv6)
 	if (host().family() == IPAddress::IPv6)
 		result.append("[");
 	result.append(host().toString());
 	if (host().family() == IPAddress::IPv6)
 		result.append("]");
+#endif
 	result.append(":");
 	NumberFormatter::append(result, port());
 	return result;

@@ -30,13 +30,21 @@
 //
 
 
+#ifndef POCO_NO_WSTRING
+
+
+#include "Poco/UnicodeConverter.h"
 #include "UnicodeConverterTest.h"
 #include "CppUnit/TestCaller.h"
 #include "CppUnit/TestSuite.h"
-#include "Poco/UnicodeConverter.h"
+#include "Poco/UTFString.h"
 
 
 using Poco::UnicodeConverter;
+using Poco::UTF16Char;
+using Poco::UTF16String;
+using Poco::UTF32Char;
+using Poco::UTF32String;
 
 
 UnicodeConverterTest::UnicodeConverterTest(const std::string& name): CppUnit::TestCase(name)
@@ -48,48 +56,17 @@ UnicodeConverterTest::~UnicodeConverterTest()
 {
 }
 
-void UnicodeConverterTest::testString()
+
+void UnicodeConverterTest::testUTF16()
 {
-	const unsigned char supp[] = {0x41, 0x42, 0xf0, 0x90, 0x82, 0xa4, 0xf0, 0xaf, 0xa6, 0xa0, 0xf0, 0xaf, 0xa8, 0x9d, 0x00};
-	std::string text((const char*) supp);
-
-	std::wstring wtext;
-
-	UnicodeConverter::toUTF16 (text, wtext);
-
-	std::string text2;
-
-	UnicodeConverter::toUTF8 (wtext, text2);
-
-	assert (text == text2);
+	
+	runTests<UTF16String>();
 }
 
-void UnicodeConverterTest::testCharPtrLength()
+
+void UnicodeConverterTest::testUTF32()
 {
-	const unsigned char supp[] = {0x41, 0x42, 0xf0, 0x90, 0x82, 0xa4, 0xf0, 0xaf, 0xa6, 0xa0, 0xf0, 0xaf, 0xa8, 0x9d, 0x00};
-	std::string text((const char*) supp);
-
-	std::wstring wtext;
-	std::string text2;
-
-	UnicodeConverter::toUTF16 ((const char*)supp, 14, wtext);
-	UnicodeConverter::toUTF8 (wtext.c_str (), (int) wtext.size (), text2);
-
-	assert (text == text2);
-}
-
-void UnicodeConverterTest::testCharPtr()
-{
-	const unsigned char supp[] = {0x41, 0x42, 0xf0, 0x90, 0x82, 0xa4, 0xf0, 0xaf, 0xa6, 0xa0, 0xf0, 0xaf, 0xa8, 0x9d, 0x00};
-	std::string text((const char*) supp);
-
-	std::wstring wtext;
-	std::string text2;
-
-	UnicodeConverter::toUTF16 ((const char*)supp, wtext);
-	UnicodeConverter::toUTF8 (wtext.c_str (), text2);
-
-	assert (text == text2);
+	runTests<UTF32String>();
 }
 
 
@@ -107,9 +84,11 @@ CppUnit::Test* UnicodeConverterTest::suite()
 {
 	CppUnit::TestSuite* pSuite = new CppUnit::TestSuite("UnicodeConverterTest");
 
-	CppUnit_addTest(pSuite, UnicodeConverterTest, testString);
-	CppUnit_addTest(pSuite, UnicodeConverterTest, testCharPtrLength);
-	CppUnit_addTest(pSuite, UnicodeConverterTest, testCharPtr);
+	CppUnit_addTest(pSuite, UnicodeConverterTest, testUTF16);
+	CppUnit_addTest(pSuite, UnicodeConverterTest, testUTF32);
 
 	return pSuite;
 }
+
+
+#endif

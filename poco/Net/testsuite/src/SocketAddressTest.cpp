@@ -1,7 +1,7 @@
 //
 // SocketAddressTest.cpp
 //
-// $Id: //poco/1.4/Net/testsuite/src/SocketAddressTest.cpp#3 $
+// $Id: //poco/1.4/Net/testsuite/src/SocketAddressTest.cpp#2 $
 //
 // Copyright (c) 2005-2006, Applied Informatics Software Engineering GmbH.
 // and Contributors.
@@ -54,6 +54,7 @@ SocketAddressTest::SocketAddressTest(const std::string& name): CppUnit::TestCase
 SocketAddressTest::~SocketAddressTest()
 {
 }
+
 
 void SocketAddressTest::testSocketAddress()
 {
@@ -137,14 +138,14 @@ void SocketAddressTest::testSocketAddress()
 }
 
 
-void SocketAddressTest::testRelationals()
+void SocketAddressTest::testSocketRelationals()
 {
-	SocketAddress sa1("192.168.1.100", 100);
+        SocketAddress sa1("192.168.1.100", 100);
         SocketAddress sa2("192.168.1.100:100");
-	assert (sa1 == sa2);
+        assert (sa1 == sa2);
 
         SocketAddress sa3("192.168.1.101", "99");
-	assert (sa2 < sa3);
+        assert (sa2 < sa3);
 
         SocketAddress sa4("192.168.1.100", "102");
         assert (sa3 < sa4);
@@ -173,7 +174,7 @@ CppUnit::Test* SocketAddressTest::suite()
 	CppUnit::TestSuite* pSuite = new CppUnit::TestSuite("SocketAddressTest");
 
 	CppUnit_addTest(pSuite, SocketAddressTest, testSocketAddress);
-	CppUnit_addTest(pSuite, SocketAddressTest, testRelationals);
+	CppUnit_addTest(pSuite, SocketAddressTest, testSocketRelationals);
 	CppUnit_addTest(pSuite, SocketAddressTest, testSocketAddress6);
 
 	return pSuite;

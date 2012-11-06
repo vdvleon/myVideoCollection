@@ -1,7 +1,7 @@
 //
 // HTTPServerConnection.cpp
 //
-// $Id: //poco/1.4/Net/src/HTTPServerConnection.cpp#7 $
+// $Id: //poco/1.4/Net/src/HTTPServerConnection.cpp#1 $
 //
 // Library: Net
 // Package: HTTPServer
@@ -78,12 +78,11 @@ void HTTPServerConnection::run()
 		try
 		{
 			Poco::FastMutex::ScopedLock lock(_mutex);
-
 			if (!_stopped)
 			{
 				HTTPServerResponseImpl response(session);
 				HTTPServerRequestImpl request(response, session, _pParams);
-
+			
 				Poco::Timestamp now;
 				response.setDate(now);
 				response.setVersion(request.getVersion());
@@ -97,7 +96,7 @@ void HTTPServerConnection::run()
 					{
 						if (request.expectContinue())
 							response.sendContinue();
-						
+					
 						pHandler->handleRequest(request, response);
 						session.setKeepAlive(_pParams->getKeepAlive() && response.getKeepAlive() && session.canKeepAlive());
 					}

@@ -1,4 +1,4 @@
-/home/leon/myVideoCollection/poco/Foundation/obj/Linux/x86_64/debug_static/PipeStream.o /home/leon/myVideoCollection/poco/Foundation/obj/Linux/x86_64/release_static/PipeStream.o /home/leon/myVideoCollection/poco/Foundation/obj/Linux/x86_64/debug_shared/PipeStream.o /home/leon/myVideoCollection/poco/Foundation/obj/Linux/x86_64/release_shared/PipeStream.o: src/PipeStream.cpp include/Poco/PipeStream.h \
+/home/leon/MyVideoCollection/poco/Foundation/obj/Linux/x86_64/debug_static/PipeStream.o /home/leon/MyVideoCollection/poco/Foundation/obj/Linux/x86_64/release_static/PipeStream.o /home/leon/MyVideoCollection/poco/Foundation/obj/Linux/x86_64/debug_shared/PipeStream.o /home/leon/MyVideoCollection/poco/Foundation/obj/Linux/x86_64/release_shared/PipeStream.o: src/PipeStream.cpp include/Poco/PipeStream.h \
  include/Poco/Foundation.h include/Poco/Config.h include/Poco/Platform.h \
  include/Poco/Platform_POSIX.h include/Poco/Bugcheck.h \
  include/Poco/Types.h include/Poco/Pipe.h include/Poco/PipeImpl.h \

@@ -1,7 +1,7 @@
 //
 // DirectoryWatcher.cpp
 //
-// $Id: //poco/1.4/Foundation/src/DirectoryWatcher.cpp#6 $
+// $Id: //poco/1.4/Foundation/src/DirectoryWatcher.cpp#4 $
 //
 // Library: Foundation
 // Package: Filesystem
@@ -42,17 +42,20 @@
 #include "Poco/Exception.h"
 #include "Poco/Buffer.h"
 #if defined(POCO_WIN32_UTF8)
-#include "Poco/UnicodeConverter.h"
+	#include "Poco/UnicodeConverter.h"
 #endif
 #if POCO_OS == POCO_OS_LINUX
-#include <sys/inotify.h>
-#include <sys/select.h>
-#include <unistd.h>
+	#include <sys/inotify.h>
+	#include <sys/select.h>
+	#include <unistd.h>
 #elif POCO_OS == POCO_OS_MAC_OS_X || POCO_OS == POCO_OS_FREE_BSD
-#include <fcntl.h>
-#include <sys/types.h>
-#include <sys/event.h>
-#include <sys/time.h>
+	#include <fcntl.h>
+	#include <sys/types.h>
+	#include <sys/event.h>
+	#include <sys/time.h>
+	#if (POCO_OS == POCO_OS_FREE_BSD) && !defined(O_EVTONLY)
+		#define O_EVTONLY 0x8000
+	#endif
 #endif
 #include <algorithm>
 #include <map>
@@ -411,19 +414,19 @@ public:
 		_dirFD = open(owner.directory().path().c_str(), O_EVTONLY);
 		if (_dirFD < 0) throw Poco::FileNotFoundException(owner.directory().path());
 		_queueFD = kqueue();
-		if (_queueFD < 0) 
+		if (_queueFD < 0)
 		{
 			close(_dirFD);
 			throw Poco::SystemException("Cannot create kqueue", errno);
 		}
 	}
-	
+
 	~BSDDirectoryWatcherStrategy()
 	{
 		close(_dirFD);
 		close(_queueFD);
 	}
-	
+
 	void run()
 	{
 		Poco::Timestamp lastScan;
@@ -449,7 +452,7 @@ public:
 				catch (Poco::Exception& exc)
 				{
 					owner().scanError(&owner(), exc);
-				}				
+				}
 			}
 			else if (nEvents > 0 || ((owner().eventMask() & DirectoryWatcher::DW_ITEM_MODIFIED) && lastScan.isElapsed(owner().scanInterval()*1000000)))
 			{
@@ -461,12 +464,12 @@ public:
 			}
 		}
 	}
-	
+
 	void stop()
 	{
 		_stopped = true;
 	}
-	
+
 	bool supportsMoveEvents() const
 	{
 		return false;
@@ -474,7 +477,7 @@ public:
 
 private:
 	int _queueFD;
-	int _dirFD; 
+	int _dirFD;
 	bool _stopped;
 };
 
@@ -584,7 +587,7 @@ void DirectoryWatcher::init()
 #elif POCO_OS == POCO_OS_LINUX
 	_pStrategy = new LinuxDirectoryWatcherStrategy(*this);
 #elif POCO_OS == POCO_OS_MAC_OS_X || POCO_OS == POCO_OS_FREE_BSD
-	_pStrategy = new BSDDirectoryWatcherStrategy(*this); 
+	_pStrategy = new BSDDirectoryWatcherStrategy(*this);
 #else
 	_pStrategy = new PollingDirectoryWatcherStrategy(*this);
 #endif

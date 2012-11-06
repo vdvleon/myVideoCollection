@@ -1,7 +1,7 @@
 //
 // LogFile_STD.cpp
 //
-// $Id: //poco/1.4/Foundation/src/LogFile_STD.cpp#2 $
+// $Id: //poco/1.4/Foundation/src/LogFile_STD.cpp#1 $
 //
 // Library: Foundation
 // Package: Logging
@@ -61,7 +61,7 @@ LogFileImpl::~LogFileImpl()
 void LogFileImpl::writeImpl(const std::string& text, bool flush)
 {
 	_str << text;
-	if (flush) 
+	if (flush)
 		_str << std::endl;
 	else
 		_str << "\n";

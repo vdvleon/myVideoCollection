@@ -1,7 +1,7 @@
 //
 // Process_UNIX.cpp
 //
-// $Id: //poco/1.4/Foundation/src/Process_UNIX.cpp#5 $
+// $Id: //poco/1.4/Foundation/src/Process_UNIX.cpp#3 $
 //
 // Library: Foundation
 // Package: Processes
@@ -129,9 +129,9 @@ ProcessHandleImpl* ProcessImpl::launchImpl(const std::string& command, const Arg
 		fdmap[1] = outPipe ? outPipe->writeHandle() : 1;
 		fdmap[2] = errPipe ? errPipe->writeHandle() : 2;
 	
-	    char** envPtr = 0;
+		char** envPtr = 0;
 		std::vector<char> envChars;
-	    std::vector<char*> envPtrs;
+		std::vector<char*> envPtrs;
 		if (!env.empty())
 		{
 			envChars = getEnvironmentVariablesBuffer(env);
@@ -140,12 +140,13 @@ ProcessHandleImpl* ProcessImpl::launchImpl(const std::string& command, const Arg
 			while (*p)
 			{
 				envPtrs.push_back(p);
-				while (*p) p++;
-				p++;
+				while (*p) ++p;
+				++p;
 			}
 			envPtrs.push_back(0);
 			envPtr = &envPtrs[0];
 		}
+	
 		int pid = spawn(command.c_str(), 3, fdmap, &inherit, argv, envPtr);
 		delete [] argv;
 		if (pid == -1) 

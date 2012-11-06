@@ -1,4 +1,4 @@
-/home/leon/myVideoCollection/poco/Foundation/obj/Linux/x86_64/debug_static/SyslogChannel.o /home/leon/myVideoCollection/poco/Foundation/obj/Linux/x86_64/release_static/SyslogChannel.o /home/leon/myVideoCollection/poco/Foundation/obj/Linux/x86_64/debug_shared/SyslogChannel.o /home/leon/myVideoCollection/poco/Foundation/obj/Linux/x86_64/release_shared/SyslogChannel.o: src/SyslogChannel.cpp include/Poco/SyslogChannel.h \
+/home/leon/MyVideoCollection/poco/Foundation/obj/Linux/x86_64/debug_static/SyslogChannel.o /home/leon/MyVideoCollection/poco/Foundation/obj/Linux/x86_64/release_static/SyslogChannel.o /home/leon/MyVideoCollection/poco/Foundation/obj/Linux/x86_64/debug_shared/SyslogChannel.o /home/leon/MyVideoCollection/poco/Foundation/obj/Linux/x86_64/release_shared/SyslogChannel.o: src/SyslogChannel.cpp include/Poco/SyslogChannel.h \
  include/Poco/Foundation.h include/Poco/Config.h include/Poco/Platform.h \
  include/Poco/Platform_POSIX.h include/Poco/Bugcheck.h \
  include/Poco/Types.h include/Poco/Channel.h include/Poco/Configurable.h \

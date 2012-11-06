@@ -1,4 +1,4 @@
-/home/leon/myVideoCollection/poco/Foundation/obj/Linux/x86_64/debug_static/SignalHandler.o /home/leon/myVideoCollection/poco/Foundation/obj/Linux/x86_64/release_static/SignalHandler.o /home/leon/myVideoCollection/poco/Foundation/obj/Linux/x86_64/debug_shared/SignalHandler.o /home/leon/myVideoCollection/poco/Foundation/obj/Linux/x86_64/release_shared/SignalHandler.o: src/SignalHandler.cpp include/Poco/SignalHandler.h \
+/home/leon/MyVideoCollection/poco/Foundation/obj/Linux/x86_64/debug_static/SignalHandler.o /home/leon/MyVideoCollection/poco/Foundation/obj/Linux/x86_64/release_static/SignalHandler.o /home/leon/MyVideoCollection/poco/Foundation/obj/Linux/x86_64/debug_shared/SignalHandler.o /home/leon/MyVideoCollection/poco/Foundation/obj/Linux/x86_64/release_shared/SignalHandler.o: src/SignalHandler.cpp include/Poco/SignalHandler.h \
  include/Poco/Foundation.h include/Poco/Config.h include/Poco/Platform.h \
  include/Poco/Platform_POSIX.h include/Poco/Bugcheck.h \
  include/Poco/Types.h include/Poco/Thread.h include/Poco/Mutex.h \

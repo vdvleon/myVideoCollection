@@ -1,7 +1,7 @@
 //
 // CoreTestSuite.cpp
 //
-// $Id: //poco/1.4/Foundation/testsuite/src/CoreTestSuite.cpp#3 $
+// $Id: //poco/1.4/Foundation/testsuite/src/CoreTestSuite.cpp#2 $
 //
 // Copyright (c) 2004-2006, Applied Informatics Software Engineering GmbH.
 // and Contributors.
@@ -32,6 +32,7 @@
 
 #include "CoreTestSuite.h"
 #include "CoreTest.h"
+#include "ArrayTest.h"
 #include "AutoPtrTest.h"
 #include "SharedPtrTest.h"
 #include "AutoReleasePoolTest.h"
@@ -48,7 +49,7 @@
 #include "DynamicFactoryTest.h"
 #include "MemoryPoolTest.h"
 #include "AnyTest.h"
-#include "DynamicAnyTest.h"
+#include "VarTest.h"
 #include "FormatTest.h"
 #include "TuplesTest.h"
 #ifndef POCO_VXWORKS
@@ -63,6 +64,7 @@ CppUnit::Test* CoreTestSuite::suite()
 	CppUnit::TestSuite* pSuite = new CppUnit::TestSuite("CoreTestSuite");
 
 	pSuite->addTest(CoreTest::suite());
+	pSuite->addTest(ArrayTest::suite());
 	pSuite->addTest(AutoPtrTest::suite());
 	pSuite->addTest(SharedPtrTest::suite());
 	pSuite->addTest(AutoReleasePoolTest::suite());
@@ -79,7 +81,7 @@ CppUnit::Test* CoreTestSuite::suite()
 	pSuite->addTest(DynamicFactoryTest::suite());
 	pSuite->addTest(MemoryPoolTest::suite());
 	pSuite->addTest(AnyTest::suite());
-	pSuite->addTest(DynamicAnyTest::suite());
+	pSuite->addTest(VarTest::suite());
 	pSuite->addTest(FormatTest::suite());
 	pSuite->addTest(TuplesTest::suite());
 #ifndef POCO_VXWORKS

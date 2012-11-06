@@ -1,4 +1,4 @@
-/home/leon/myVideoCollection/poco/Foundation/obj/Linux/x86_64/debug_static/TextConverter.o /home/leon/myVideoCollection/poco/Foundation/obj/Linux/x86_64/release_static/TextConverter.o /home/leon/myVideoCollection/poco/Foundation/obj/Linux/x86_64/debug_shared/TextConverter.o /home/leon/myVideoCollection/poco/Foundation/obj/Linux/x86_64/release_shared/TextConverter.o: src/TextConverter.cpp include/Poco/TextConverter.h \
+/home/leon/MyVideoCollection/poco/Foundation/obj/Linux/x86_64/debug_static/TextConverter.o /home/leon/MyVideoCollection/poco/Foundation/obj/Linux/x86_64/release_static/TextConverter.o /home/leon/MyVideoCollection/poco/Foundation/obj/Linux/x86_64/debug_shared/TextConverter.o /home/leon/MyVideoCollection/poco/Foundation/obj/Linux/x86_64/release_shared/TextConverter.o: src/TextConverter.cpp include/Poco/TextConverter.h \
  include/Poco/Foundation.h include/Poco/Config.h include/Poco/Platform.h \
  include/Poco/Platform_POSIX.h include/Poco/Bugcheck.h \
  include/Poco/Types.h include/Poco/TextIterator.h \

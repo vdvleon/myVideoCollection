@@ -1,4 +1,4 @@
-/home/leon/myVideoCollection/poco/Foundation/obj/Linux/x86_64/debug_static/UUIDGenerator.o /home/leon/myVideoCollection/poco/Foundation/obj/Linux/x86_64/release_static/UUIDGenerator.o /home/leon/myVideoCollection/poco/Foundation/obj/Linux/x86_64/debug_shared/UUIDGenerator.o /home/leon/myVideoCollection/poco/Foundation/obj/Linux/x86_64/release_shared/UUIDGenerator.o: src/UUIDGenerator.cpp include/Poco/UUIDGenerator.h \
+/home/leon/MyVideoCollection/poco/Foundation/obj/Linux/x86_64/debug_static/UUIDGenerator.o /home/leon/MyVideoCollection/poco/Foundation/obj/Linux/x86_64/release_static/UUIDGenerator.o /home/leon/MyVideoCollection/poco/Foundation/obj/Linux/x86_64/debug_shared/UUIDGenerator.o /home/leon/MyVideoCollection/poco/Foundation/obj/Linux/x86_64/release_shared/UUIDGenerator.o: src/UUIDGenerator.cpp include/Poco/UUIDGenerator.h \
  include/Poco/Foundation.h include/Poco/Config.h include/Poco/Platform.h \
  include/Poco/Platform_POSIX.h include/Poco/Bugcheck.h \
  include/Poco/Types.h include/Poco/UUID.h include/Poco/Mutex.h \

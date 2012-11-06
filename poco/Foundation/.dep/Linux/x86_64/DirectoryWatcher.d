@@ -1,4 +1,4 @@
-/home/leon/myVideoCollection/poco/Foundation/obj/Linux/x86_64/debug_static/DirectoryWatcher.o /home/leon/myVideoCollection/poco/Foundation/obj/Linux/x86_64/release_static/DirectoryWatcher.o /home/leon/myVideoCollection/poco/Foundation/obj/Linux/x86_64/debug_shared/DirectoryWatcher.o /home/leon/myVideoCollection/poco/Foundation/obj/Linux/x86_64/release_shared/DirectoryWatcher.o: src/DirectoryWatcher.cpp \
+/home/leon/MyVideoCollection/poco/Foundation/obj/Linux/x86_64/debug_static/DirectoryWatcher.o /home/leon/MyVideoCollection/poco/Foundation/obj/Linux/x86_64/release_static/DirectoryWatcher.o /home/leon/MyVideoCollection/poco/Foundation/obj/Linux/x86_64/debug_shared/DirectoryWatcher.o /home/leon/MyVideoCollection/poco/Foundation/obj/Linux/x86_64/release_shared/DirectoryWatcher.o: src/DirectoryWatcher.cpp \
  include/Poco/DirectoryWatcher.h include/Poco/Foundation.h \
  include/Poco/Config.h include/Poco/Platform.h \
  include/Poco/Platform_POSIX.h include/Poco/Bugcheck.h \
@@ -17,4 +17,4 @@
  include/Poco/DefaultStrategy.h include/Poco/NotificationStrategy.h \
  include/Poco/AbstractDelegate.h include/Poco/Path.h include/Poco/Glob.h \
  include/Poco/TextIterator.h include/Poco/DirectoryIterator.h \
- include/Poco/Buffer.h include/Poco/UnicodeConverter.h
+ include/Poco/Buffer.h

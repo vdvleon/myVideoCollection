@@ -1,4 +1,4 @@
-/home/leon/myVideoCollection/poco/Foundation/obj/Linux/x86_64/debug_static/ArchiveStrategy.o /home/leon/myVideoCollection/poco/Foundation/obj/Linux/x86_64/release_static/ArchiveStrategy.o /home/leon/myVideoCollection/poco/Foundation/obj/Linux/x86_64/debug_shared/ArchiveStrategy.o /home/leon/myVideoCollection/poco/Foundation/obj/Linux/x86_64/release_shared/ArchiveStrategy.o: src/ArchiveStrategy.cpp include/Poco/ArchiveStrategy.h \
+/home/leon/MyVideoCollection/poco/Foundation/obj/Linux/x86_64/debug_static/ArchiveStrategy.o /home/leon/MyVideoCollection/poco/Foundation/obj/Linux/x86_64/release_static/ArchiveStrategy.o /home/leon/MyVideoCollection/poco/Foundation/obj/Linux/x86_64/debug_shared/ArchiveStrategy.o /home/leon/MyVideoCollection/poco/Foundation/obj/Linux/x86_64/release_shared/ArchiveStrategy.o: src/ArchiveStrategy.cpp include/Poco/ArchiveStrategy.h \
  include/Poco/Foundation.h include/Poco/Config.h include/Poco/Platform.h \
  include/Poco/Platform_POSIX.h include/Poco/Bugcheck.h \
  include/Poco/Types.h include/Poco/LogFile.h include/Poco/LogFile_STD.h \

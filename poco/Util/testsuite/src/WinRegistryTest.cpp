@@ -30,6 +30,9 @@
 //
 
 
+#if !defined(_WIN32_WCE)
+
+
 #include "WinRegistryTest.h"
 #include "CppUnit/TestCaller.h"
 #include "CppUnit/TestSuite.h"
@@ -55,11 +58,9 @@ WinRegistryTest::~WinRegistryTest()
 void WinRegistryTest::testRegistry()
 {
 	WinRegistryKey regKey("HKEY_CURRENT_USER\\Software\\Applied Informatics\\Test");
-	if (regKey.exists())
-	{
-		regKey.deleteKey();
-	}
+	if (regKey.exists()) regKey.deleteKey();
 	assert (!regKey.exists());
+
 	regKey.setString("name1", "value1");
 	assert (regKey.getString("name1") == "value1");
 	regKey.setString("name1", "Value1");
@@ -123,3 +124,6 @@ CppUnit::Test* WinRegistryTest::suite()
 
 	return pSuite;
 }
+
+
+#endif // _WIN32_WCE

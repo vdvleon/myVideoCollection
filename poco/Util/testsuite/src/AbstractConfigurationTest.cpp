@@ -36,12 +36,20 @@
 #include "Poco/AutoPtr.h"
 #include "Poco/Exception.h"
 #include "Poco/Delegate.h"
+#include "Poco/NumberFormatter.h"
+#include "Poco/Types.h"
 #include <algorithm>
+#undef min
+#undef max
+#include <limits>
 
 
 using Poco::Util::AbstractConfiguration;
 using Poco::Util::MapConfiguration;
+using Poco::NumberFormatter;
 using Poco::AutoPtr;
+using Poco::Int64;
+using Poco::UInt64;
 
 
 AbstractConfigurationTest::AbstractConfigurationTest(const std::string& name): CppUnit::TestCase(name)
@@ -115,6 +123,33 @@ void AbstractConfigurationTest::testGetInt()
 	assert (pConf->getInt("prop4.int1", 100) == 42);
 	assert (pConf->getInt("prop4.int2", 100) == -42);
 	assert (pConf->getInt("prop4.int3", 100) == 100);
+}
+
+
+void AbstractConfigurationTest::testGetInt64()
+{
+#if defined(POCO_HAVE_INT64)
+	AutoPtr<AbstractConfiguration> pConf = createConfiguration();
+
+	assert (pConf->getInt64("prop4.bigint1") == std::numeric_limits<Int64>::max());
+	assert (pConf->getInt64("prop4.bigint2") == std::numeric_limits<Int64>::min());
+	assert (pConf->getUInt64("prop4.biguint") == std::numeric_limits<UInt64>::max());
+	assert (pConf->getInt64("ref2") == 42);
+
+	try
+	{
+		Int64 x = pConf->getInt64("prop1");
+		x=x;
+		fail("not a number - must throw");
+	}
+	catch (Poco::SyntaxException&)
+	{
+	}
+
+	assert (pConf->getInt64("prop4.bigint1", 100) == std::numeric_limits<Int64>::max());
+	assert (pConf->getInt64("prop4.bigint2", 100) == std::numeric_limits<Int64>::min());
+	assert (pConf->getUInt64("prop4.biguint", 100) == std::numeric_limits<UInt64>::max());
+#endif
 }
 
 
@@ -215,8 +250,26 @@ void AbstractConfigurationTest::testSetInt()
 
 	pConf->setInt("set.int1", 42);
 	pConf->setInt("set.int2", -100);
+	pConf->setInt("set.uint", 42U);
 	assert (pConf->getInt("set.int1") == 42);
 	assert (pConf->getInt("set.int2") == -100);
+	assert (pConf->getInt("set.uint") == 42U);
+}
+
+
+void AbstractConfigurationTest::testSetInt64()
+{
+#if defined(POCO_HAVE_INT64)
+	AutoPtr<AbstractConfiguration> pConf = createConfiguration();
+
+	pConf->setInt64("set.bigint1", std::numeric_limits<Int64>::max());
+	pConf->setInt64("set.bigint2", std::numeric_limits<Int64>::min());
+	pConf->setInt64("set.biguint", std::numeric_limits<UInt64>::max());
+
+	assert (pConf->getInt64("set.bigint1") == std::numeric_limits<Int64>::max());
+	assert (pConf->getInt64("set.bigint2") == std::numeric_limits<Int64>::min());
+	assert (pConf->getInt64("set.biguint") == std::numeric_limits<UInt64>::max());
+#endif //defined(POCO_HAVE_INT64)
 }
 
 
@@ -334,7 +387,7 @@ void AbstractConfigurationTest::testRemove()
 	pConf->keys(keys);
 	assert (keys.size() == 13);
 	pConf->keys("prop4", keys);
-	assert (keys.size() == 13);
+	assert (keys.size() == 17);
 
 	pConf->remove("prop4.bool1");
 	assert (!pConf->hasProperty("prop4.bool1"));
@@ -343,7 +396,7 @@ void AbstractConfigurationTest::testRemove()
 	pConf->keys(keys);
 	assert (keys.size() == 13);
 	pConf->keys("prop4", keys);
-	assert (keys.size() == 12);
+	assert (keys.size() == 16);
 
 	pConf->remove("prop4");
 	assert (!pConf->hasProperty("prop4.bool1"));
@@ -371,6 +424,16 @@ Poco::AutoPtr<AbstractConfiguration> AbstractConfigurationTest::createConfigurat
 	pConfig->setString("prop3.string2", "bar");
 	pConfig->setString("prop4.int1", "42");
 	pConfig->setString("prop4.int2", "-42");
+	pConfig->setString("prop4.uint", NumberFormatter::format(std::numeric_limits<unsigned>::max()));
+#if defined(POCO_HAVE_INT64)
+	pConfig->setString("prop4.bigint1", NumberFormatter::format(std::numeric_limits<Int64>::max()));
+	pConfig->setString("prop4.bigint2", NumberFormatter::format(std::numeric_limits<Int64>::min()));
+	pConfig->setString("prop4.biguint", NumberFormatter::format(std::numeric_limits<UInt64>::max()));
+#else /// just to make sure property count is consistent
+	pConfig->setString("prop4.bigint1", 0));
+	pConfig->setString("prop4.bigint2", 0));
+	pConfig->setString("prop4.biguint", 0));
+#endif
 	pConfig->setString("prop4.hex", "0x1f");
 	pConfig->setString("prop4.double1", "1");
 	pConfig->setString("prop4.double2", "-1.5");
@@ -397,7 +460,7 @@ Poco::AutoPtr<AbstractConfiguration> AbstractConfigurationTest::createConfigurat
 	pConfig->setString("ref7", "${ref1}");
 	pConfig->setString("dollar.atend", "foo$");
 	pConfig->setString("dollar.middle", "foo$bar");
-	
+
 	return pConfig;
 }
 
@@ -442,3 +505,4 @@ void AbstractConfigurationTest::onPropertyRemoved(const void*, const std::string
 {
 	_removedKey = key;
 }
+

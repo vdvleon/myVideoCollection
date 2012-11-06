@@ -1,4 +1,4 @@
-/home/leon/myVideoCollection/poco/Foundation/obj/Linux/x86_64/debug_static/SimpleFileChannel.o /home/leon/myVideoCollection/poco/Foundation/obj/Linux/x86_64/release_static/SimpleFileChannel.o /home/leon/myVideoCollection/poco/Foundation/obj/Linux/x86_64/debug_shared/SimpleFileChannel.o /home/leon/myVideoCollection/poco/Foundation/obj/Linux/x86_64/release_shared/SimpleFileChannel.o: src/SimpleFileChannel.cpp \
+/home/leon/MyVideoCollection/poco/Foundation/obj/Linux/x86_64/debug_static/SimpleFileChannel.o /home/leon/MyVideoCollection/poco/Foundation/obj/Linux/x86_64/release_static/SimpleFileChannel.o /home/leon/MyVideoCollection/poco/Foundation/obj/Linux/x86_64/debug_shared/SimpleFileChannel.o /home/leon/MyVideoCollection/poco/Foundation/obj/Linux/x86_64/release_shared/SimpleFileChannel.o: src/SimpleFileChannel.cpp \
  include/Poco/SimpleFileChannel.h include/Poco/Foundation.h \
  include/Poco/Config.h include/Poco/Platform.h \
  include/Poco/Platform_POSIX.h include/Poco/Bugcheck.h \

@@ -1,4 +1,4 @@
-/home/leon/myVideoCollection/poco/Foundation/obj/Linux/x86_64/debug_static/Path.o /home/leon/myVideoCollection/poco/Foundation/obj/Linux/x86_64/release_static/Path.o /home/leon/myVideoCollection/poco/Foundation/obj/Linux/x86_64/debug_shared/Path.o /home/leon/myVideoCollection/poco/Foundation/obj/Linux/x86_64/release_shared/Path.o: src/Path.cpp include/Poco/Path.h include/Poco/Foundation.h \
+/home/leon/MyVideoCollection/poco/Foundation/obj/Linux/x86_64/debug_static/Path.o /home/leon/MyVideoCollection/poco/Foundation/obj/Linux/x86_64/release_static/Path.o /home/leon/MyVideoCollection/poco/Foundation/obj/Linux/x86_64/debug_shared/Path.o /home/leon/MyVideoCollection/poco/Foundation/obj/Linux/x86_64/release_shared/Path.o: src/Path.cpp include/Poco/Path.h include/Poco/Foundation.h \
  include/Poco/Config.h include/Poco/Platform.h \
  include/Poco/Platform_POSIX.h include/Poco/Bugcheck.h \
  include/Poco/Types.h include/Poco/File.h include/Poco/Timestamp.h \

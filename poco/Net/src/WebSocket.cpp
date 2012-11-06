@@ -1,7 +1,7 @@
 //
 // WebSocket.cpp
 //
-// $Id: //poco/1.4/Net/src/WebSocket.cpp#5 $
+// $Id: //poco/1.4/Net/src/WebSocket.cpp#4 $
 //
 // Library: Net
 // Package: WebSocket
@@ -133,7 +133,8 @@ WebSocket::Mode WebSocket::mode() const
 
 WebSocketImpl* WebSocket::accept(HTTPServerRequest& request, HTTPServerResponse& response)
 {
-	if (request.hasToken("Connection", "upgrade") && icompare(request.get("Upgrade", ""), "websocket") == 0)
+	if (icompare(request.get("Connection", ""), "Upgrade") == 0 &&
+	    icompare(request.get("Upgrade", ""), "websocket") == 0)
 	{
 		std::string version = request.get("Sec-WebSocket-Version", "");
 		if (version.empty()) throw WebSocketException("Missing Sec-WebSocket-Version in handshake request", WS_ERR_HANDSHAKE_NO_VERSION);

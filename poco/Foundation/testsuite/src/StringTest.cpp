@@ -34,6 +34,12 @@
 #include "CppUnit/TestCaller.h"
 #include "CppUnit/TestSuite.h"
 #include "Poco/String.h"
+#include "Poco/Format.h"
+#include "Poco/MemoryStream.h"
+#include "Poco/Stopwatch.h"
+#include <iostream>
+#include <iomanip>
+#include <cstdio>
 
 
 using Poco::trimLeft;
@@ -52,6 +58,13 @@ using Poco::translateInPlace;
 using Poco::replace;
 using Poco::replaceInPlace;
 using Poco::cat;
+using Poco::strToInt;
+using Poco::strToFloat;
+using Poco::thousandSeparator;
+using Poco::decimalSeparator;
+using Poco::format;
+using Poco::MemoryInputStream;
+using Poco::Stopwatch;
 
 
 StringTest::StringTest(const std::string& name): CppUnit::TestCase(name)
@@ -308,7 +321,7 @@ void StringTest::testReplace()
 	assert (replace(s, "a", "xx") == "xxxxbbxxxxbb");
 	assert (replace(s, "aa", "xxx") == "xxxbbxxxbb");
 	
-	assert (replace(s, "aa", "xx", 2) == "aabbxxbb");	
+	assert (replace(s, "aa", "xx", 2) == "aabbxxbb");
 }
 
 
@@ -347,6 +360,336 @@ void StringTest::testCat()
 }
 
 
+void StringTest::testStringToInt()
+{
+//gcc on Mac emits warnings that cannot be suppressed
+#ifndef POCO_OS_FAMILY_BSD
+	stringToInt<Poco::Int8>();
+	stringToInt<Poco::UInt8>();
+	stringToInt<Poco::Int16>();
+	stringToInt<Poco::UInt16>();
+#endif
+	stringToInt<Poco::Int32>();
+	stringToInt<Poco::UInt32>();
+#if defined(POCO_HAVE_INT64)
+	stringToInt<Poco::Int64>();
+	stringToInt<Poco::UInt64>();
+#endif
+}
+
+
+void StringTest::testStringToFloat()
+{
+#ifndef POCO_NO_FPENVIRONMENT
+	
+	double result;
+	char eu;
+	std::string sep(".,");
+
+	for (int i = 0; i < 2; ++i)
+	{
+		char ds = sep[i];
+		for (int j = 0; j < 2; ++j)
+		{
+			char ts = sep[j];
+			if (ts == ds) continue;
+
+			assert(strToFloat("1", result, eu, ds, ts));
+			assertEqualDelta(1.0, result, 0.01);
+			assert(strToFloat(format("%c1", ds), result, eu, ds, ts));
+			assertEqualDelta(.1, result, 0.01);
+			assert(strToFloat(format("1%c", ds), result, eu, ds, ts));
+			assertEqualDelta(1., result, 0.01);
+			assert(strToFloat("0", result, eu, ds, ts));
+			assertEqualDelta(0.0, result, 0.01);
+			assert(strToFloat(format("0%c", ds), result, eu, ds, ts));
+			assertEqualDelta(0.0, result, 0.01);
+			assert(strToFloat(format("%c0", ds), result, eu, ds, ts));
+			assertEqualDelta(0.0, result, 0.01);
+			assert(strToFloat(format("0%c0", ds), result, eu, ds, ts));
+			assertEqualDelta(0.0, result, 0.01);
+			assert(strToFloat(format("0%c0", ds), result, eu, ds, ts));
+			assertEqualDelta(0., result, 0.01);
+			assert(strToFloat(format("0%c0", ds), result, eu, ds, ts));
+			assertEqualDelta(.0, result, 0.01);
+			assert(strToFloat(format("12%c34", ds), result, eu, ds, ts));
+			assertEqualDelta(12.34, result, 0.01);
+			assert(strToFloat(format("12%c34f", ds), result, eu, ds, ts));
+			assertEqualDelta(12.34, result, 0.01);
+			assert(strToFloat(format("12%c34", ds), result, eu, ds, ts));
+			assertEqualDelta(12.34, result, 0.01);
+			assert(strToFloat(format("-12%c34", ds), result, eu, ds, ts));
+			assertEqualDelta(-12.34, result, 0.01);
+			assert(strToFloat(format("%c34", ds), result, eu, ds, ts));
+			assertEqualDelta(.34, result, 0.01);
+			assert(strToFloat(format("-%c34", ds), result, eu, ds, ts));
+			assertEqualDelta(-.34, result, 0.01);
+			assert(strToFloat(format("12%c", ds), result, eu, ds, ts));
+			assertEqualDelta(12., result, 0.01);
+			assert(strToFloat(format("-12%c", ds), result, eu, ds, ts));
+			assertEqualDelta(-12., result, 0.01);
+			assert(strToFloat("12", result, eu, ds, ts));
+			assertEqualDelta(12, result, 0.01);
+			assert(strToFloat("-12", result, eu, ds, ts));
+			assertEqualDelta(-12, result, 0.01);
+			assert(strToFloat(format("12%c3456789012345678901234567890", ds), result, eu, ds, ts));
+			assertEqualDelta(12.34, result, 0.01);
+
+			assert(strToFloat(format("1%c234%c3456789012345678901234567890", ts, ds), result, eu, ds, ts));
+			assertEqualDelta(1234.3456789, result, 0.00000001);
+			assert(strToFloat(format("12%c345%c3456789012345678901234567890", ts, ds), result, eu, ds, ts));
+			assertEqualDelta(12345.3456789, result, 0.00000001);
+			assert(strToFloat(format("123%c456%c3456789012345678901234567890", ts, ds), result, eu, ds, ts));
+			assertEqualDelta(123456.3456789, result, 0.00000001);
+			assert(strToFloat(format("1%c234%c567%c3456789012345678901234567890", ts, ts, ds), result, eu, ds, ts));
+			assertEqualDelta(1234567.3456789, result, 0.00000001);
+			assert(strToFloat(format("12%c345%c678%c3456789012345678901234567890", ts, ts, ds), result, eu, ds, ts));
+			assertEqualDelta(12345678.3456789, result, 0.00000001);
+			assert(strToFloat(format("123%c456%c789%c3456789012345678901234567890", ts, ts, ds), result, eu, ds, ts));
+			assertEqualDelta(123456789.3456789, result, 0.00000001);
+
+			if ((std::numeric_limits<double>::max() / 10) < 1.23456e10)
+				fail ("test value larger than max value for this platform");
+			else
+			{
+				double d = 12e34;
+				assert(strToFloat(format("12e34", ds), result, eu, ds, ts));
+				assertEqualDelta(d, result, 0.01e34);
+			
+				d = 1.234e100;
+				assert(strToFloat(format("1%c234e100", ds), result, eu, ds, ts));
+				assertEqualDelta(d, result, 0.01);
+				assert(strToFloat(format("1%c234E+100", ds), result, eu, ds, ts));
+				assertEqualDelta(d, result, 0.01);
+		
+				d = 1.234e-100;
+				assert(strToFloat(format("1%c234E-100", ds), result, eu, ds, ts));
+				assertEqualDelta(d, result, 0.01);
+		
+				d = -1.234e100;
+				assert(strToFloat(format("-1%c234e+100", ds), result, eu, ds, ts));
+				assertEqualDelta(d, result, 0.01);
+				assert(strToFloat(format("-1%c234E100", ds), result, eu, ds, ts));
+				assertEqualDelta(d, result, 0.01);
+		
+				d = 1.234e-100;
+				assert(strToFloat(format(" 1%c234e-100 ", ds), result, eu, ds, ts));
+				assertEqualDelta(d, result, 0.01);
+				assert(strToFloat(format(" 1%c234e-100 ", ds), result, eu, ds, ts));
+				assertEqualDelta(d, result, 0.01);
+				assert(strToFloat(format("  1%c234e-100 ", ds), result, eu, ds, ts));
+				assertEqualDelta(d, result, 0.01);
+
+				d = 1234.234e-100;
+				assert(strToFloat(format(" 1%c234%c234e-100 ", ts, ds), result, eu, ds, ts));
+				assertEqualDelta(d, result, 0.01);
+				d = 12345.234e-100;
+				assert(strToFloat(format(" 12%c345%c234e-100 ", ts, ds), result, eu, ds, ts));
+				assertEqualDelta(d, result, 0.01);
+				d = 123456.234e-100;
+				assert(strToFloat(format("  123%c456%c234e-100 ", ts, ds), result, eu, ds, ts));
+				assertEqualDelta(d, result, 0.01);
+
+				d = -1234.234e-100;
+				assert(strToFloat(format(" -1%c234%c234e-100 ", ts, ds), result, eu, ds, ts));
+				assertEqualDelta(d, result, 0.01);
+				d = -12345.234e-100;
+				assert(strToFloat(format(" -12%c345%c234e-100 ", ts, ds), result, eu, ds, ts));
+				assertEqualDelta(d, result, 0.01);
+				d = -123456.234e-100;
+				char ou = 0;
+				assert(strToFloat(format("  -123%c456%c234e-100 ", ts, ds), result, eu, ds, ts));
+				assertEqualDelta(d, result, 0.01);
+				assert (ou == 0);
+			}
+
+			double d = 12.34e-10;
+			assert(strToFloat(format("12%c34e-10", ds), result, eu, ds, ts));
+			assertEqualDelta(d, result, 0.01);
+			assert(strToFloat(format("-12%c34", ds), result, eu, ds, ts));
+			assertEqualDelta(-12.34, result, 0.01);
+	
+			assert(strToFloat(format("   12%c34", ds), result, eu, ds, ts));
+			assertEqualDelta(12.34, result, 0.01);
+			assert(strToFloat(format("12%c34   ", ds), result, eu, ds, ts));
+			assertEqualDelta(12.34, result, 0.01);
+			assert(strToFloat(format(" 12%c34  ", ds), result, eu, ds, ts));
+			assertEqualDelta(12.34, result, 0.01);
+		}
+	}
+#endif // POCO_NO_FPENVIRONMENT
+}
+
+
+void StringTest::testStringToFloatError()
+{
+#if !defined(POCO_NO_FPENVIRONMENT) && !defined(POCO_NO_LOCALE)
+	const char ds = decimalSeparator();
+	const char ts = thousandSeparator();
+
+	double result = 0.0;
+	char ou;
+	assert (!strToFloat(format("a12%c3", ds), result, ou));
+	assert (!strToFloat(format("1b2%c3", ds), result, ou));
+	assert (!strToFloat(format("12c%c3", ds), result, ou));
+	assert (!strToFloat(format("12%cx3", ds), result, ou));
+
+	double d = -123456.234e-100;
+	assert(strToFloat(format("123%c456%c234e-1000000", ts, ds), result, ou));
+	assert (ou < 0); // loss of precision
+	assertEqualDelta(d, result, 0.01); // value still good
+	assert(!strToFloat(format("123%c456%c234e1000000", ts, ds), result, ou));
+	assert(!strToFloat(format("123%c456%c234e+1000000", ts, ds), result, ou));
+	assert(!strToFloat(0, result, ou)); // strToFloat is resilient to null pointers
+	assert(!strToFloat("", result, ou));
+#endif
+}
+
+
+void StringTest::testNumericLocale()
+{
+#if !defined(POCO_NO_LOCALE) && POCO_OS == POCO_OS_WINDOWS_NT
+	try
+	{
+		char dp = decimalSeparator();
+		char ts = thousandSeparator();
+		std::locale loc;
+		std::cout << "Original locale: '" << loc.name() << '\'' << std::endl;
+		std::cout << "Decimal point: '" << decimalSeparator() << '\'' << std::endl;
+		std::cout << "Thousand separator: '" << ts << '\'' << std::endl;
+
+		std::locale::global(std::locale("German"));
+		std::locale locGerman;
+		assert (',' == decimalSeparator());
+		assert ('.' == thousandSeparator());
+		std::cout << "New locale: '" << locGerman.name() << '\'' << std::endl;
+		std::cout << "Decimal point: '" << decimalSeparator() << '\'' << std::endl;
+		std::cout << "Thousand separator: '" << thousandSeparator() << '\'' << std::endl;
+
+		std::locale::global(std::locale("US"));
+		std::locale locUS;
+		assert ('.' == decimalSeparator());
+		assert (',' == thousandSeparator());
+		std::cout << "New locale: '" << locUS.name() << '\'' << std::endl;
+		std::cout << "Decimal point: '" << decimalSeparator() << '\'' << std::endl;
+		std::cout << "Thousand separator: '" << thousandSeparator() << '\'' << std::endl;
+
+		std::locale::global(loc);
+		dp = decimalSeparator();
+		ts = thousandSeparator();
+		std::cout << "Final locale: '" << loc.name() << '\'' << std::endl;
+		std::cout << "Decimal point: '" << decimalSeparator() << '\'' << std::endl;
+		std::cout << "Thousand separator: '" << thousandSeparator() << '\'' << std::endl;
+		assert (dp == decimalSeparator());
+		assert (ts == thousandSeparator());
+	} catch (std::runtime_error& ex)
+	{
+		std::cout << ex.what() << std::endl;
+		warnmsg ("Locale not found, skipping test");
+	}
+#endif
+}
+
+
+void StringTest::benchmarkStrToInt()
+{
+	Poco::Stopwatch sw;
+	std::string num = "123456789";
+	int res;
+	sw.start();
+	for (int i = 0; i < 1000000; ++i) parseStream(num, res);
+	sw.stop();
+	std::cout << "parseStream Number: " << res << std::endl;
+	double timeStream = sw.elapsed() / 1000.0;
+
+	char* pC = 0;
+	sw.restart();
+	for (int i = 0; i < 1000000; ++i) res = std::strtol(num.c_str(), &pC, 10);
+	sw.stop();
+	std::cout << "std::strtol Number: " << res << std::endl;
+	double timeStrtol = sw.elapsed() / 1000.0;
+	
+	sw.restart();
+	for (int i = 0; i < 1000000; ++i) strToInt(num.c_str(), res, 10);
+	sw.stop();
+	std::cout << "strToInt Number: " << res << std::endl;
+	double timeStrToInt = sw.elapsed() / 1000.0;
+	
+	sw.restart();
+	for (int i = 0; i < 1000000; ++i) std::sscanf(num.c_str(), "%d", &res);
+	sw.stop();
+	std::cout << "sscanf Number: " << res << std::endl;
+	double timeScanf = sw.elapsed() / 1000.0;
+
+	int graph;
+	std::cout << std::endl << "Timing and speedup relative to I/O stream:" << std::endl << std::endl;
+	std::cout << std::setw(14) << "Stream:\t" << std::setw(10) << std::setfill(' ') << timeStream << "[ms]" << std::endl;
+
+	std::cout << std::setw(14) << "std::strtol:\t" << std::setw(10) << std::setfill(' ') << timeStrtol << "[ms]" << 
+	std::setw(10) << std::setfill(' ')  << "Speedup: " << (timeStream / timeStrtol) << '\t' ;
+	graph = (int) (timeStream / timeStrtol); for (int i = 0; i < graph; ++i) std::cout << '|';
+
+	std::cout << std::endl << std::setw(14) << "strToInt:\t" << std::setw(10) << std::setfill(' ') << timeStrToInt << "[ms]" << 
+	std::setw(10) << std::setfill(' ')  << "Speedup: " << (timeStream / timeStrToInt) << '\t' ;
+	graph = (int) (timeStream / timeStrToInt); for (int i = 0; i < graph; ++i) std::cout << '|';
+
+	std::cout << std::endl << std::setw(14) << "std::sscanf:\t" << std::setw(10) << std::setfill(' ')  << timeScanf << "[ms]" <<
+	std::setw(10) << std::setfill(' ')  << "Speedup: " << (timeStream / timeScanf) << '\t' ;
+	graph = (int) (timeStream / timeScanf); for (int i = 0; i < graph; ++i) std::cout << '|';
+	std::cout << std::endl;
+}
+
+
+void StringTest::benchmarkStrToFloat()
+{
+	Poco::Stopwatch sw;
+	std::string num = "1.23456e-123";
+	double res;
+	sw.start();
+	for (int i = 0; i < 1000000; ++i) parseStream(num, res);
+	sw.stop();
+	std::cout << "parseStream Number: " << res << std::endl;
+	double timeStream = sw.elapsed() / 1000.0;
+
+	char* pC = 0;
+	sw.restart();
+	for (int i = 0; i < 1000000; ++i) res = std::strtod(num.c_str(), &pC);
+	sw.stop();
+	std::cout << "std::strtod Number: " << res << std::endl;
+	double timeStrtod = sw.elapsed() / 1000.0;
+
+	sw.restart();
+	char ou = 0;
+	for (int i = 0; i < 1000000; ++i) strToFloat(num.c_str(), res, ou);
+	sw.stop();
+	std::cout << "strToFloat Number: " << res << std::endl;
+	double timeStrToFloat = sw.elapsed() / 1000.0;
+	
+	sw.restart();
+	for (int i = 0; i < 1000000; ++i) std::sscanf(num.c_str(), "%lf", &res);
+	sw.stop();
+	std::cout << "sscanf Number: " << res << std::endl;
+	double timeScanf = sw.elapsed() / 1000.0;
+
+	int graph;
+	std::cout << std::endl << "Timing and speedup relative to I/O stream:" << std::endl << std::endl;
+	std::cout << std::setw(14) << "Stream:\t" << std::setw(10) << std::setfill(' ') << timeStream << "[ms]" << std::endl;
+
+	std::cout << std::setw(14) << "std::strtod:\t" << std::setw(10) << std::setfill(' ') << timeStrtod << "[ms]" << 
+	std::setw(10) << std::setfill(' ')  << "Speedup: " << (timeStream / timeStrtod) << '\t' ;
+	graph = (int) (timeStream / timeStrtod); for (int i = 0; i < graph; ++i) std::cout << '#';
+
+	std::cout << std::endl << std::setw(14) << "strToFloat:\t" << std::setw(10) << std::setfill(' ') << timeStrToFloat << "[ms]" << 
+	std::setw(10) << std::setfill(' ')  << "Speedup: " << (timeStream / timeStrToFloat) << '\t' ;
+	graph = (int) (timeStream / timeStrToFloat); for (int i = 0; i < graph; ++i) std::cout << '#';
+
+	std::cout << std::endl << std::setw(14) << "std::sscanf:\t" << std::setw(10) << std::setfill(' ')  << timeScanf << "[ms]" <<
+	std::setw(10) << std::setfill(' ')  << "Speedup: " << (timeStream / timeScanf) << '\t' ;
+	graph = (int) (timeStream / timeScanf); for (int i = 0; i < graph; ++i) std::cout << '#';
+	std::cout << std::endl;
+}
+
+
 void StringTest::setUp()
 {
 }
@@ -375,6 +718,12 @@ CppUnit::Test* StringTest::suite()
 	CppUnit_addTest(pSuite, StringTest, testReplace);
 	CppUnit_addTest(pSuite, StringTest, testReplaceInPlace);
 	CppUnit_addTest(pSuite, StringTest, testCat);
+	CppUnit_addTest(pSuite, StringTest, testStringToInt);
+	CppUnit_addTest(pSuite, StringTest, testStringToFloat);
+	CppUnit_addTest(pSuite, StringTest, testStringToFloatError);
+	CppUnit_addTest(pSuite, StringTest, testNumericLocale);
+	//CppUnit_addTest(pSuite, StringTest, benchmarkStrToFloat);
+	//CppUnit_addTest(pSuite, StringTest, benchmarkStrToInt);
 
 	return pSuite;
 }

@@ -46,10 +46,13 @@ public:
 	NetworkInterfaceTest(const std::string& name);
 	~NetworkInterfaceTest();
 
+	void testMap();
 	void testList();
 	void testForName();
 	void testForAddress();
 	void testForIndex();
+	void testMapIpOnly();
+	void testMapUpOnly();
 
 	void setUp();
 	void tearDown();

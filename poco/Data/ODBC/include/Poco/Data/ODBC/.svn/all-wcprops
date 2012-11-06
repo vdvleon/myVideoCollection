@@ -1,0 +1,125 @@
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svnroot/poco/!svn/ver/2046/poco/trunk/Data/ODBC/include/Poco/Data/ODBC
+END
+Error.h
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/poco/!svn/ver/1801/poco/trunk/Data/ODBC/include/Poco/Data/ODBC/Error.h
+END
+Connector.h
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/poco/!svn/ver/1801/poco/trunk/Data/ODBC/include/Poco/Data/ODBC/Connector.h
+END
+Handle.h
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/poco/!svn/ver/1801/poco/trunk/Data/ODBC/include/Poco/Data/ODBC/Handle.h
+END
+ODBCMetaColumn.h
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/poco/!svn/ver/1801/poco/trunk/Data/ODBC/include/Poco/Data/ODBC/ODBCMetaColumn.h
+END
+TypeInfo.h
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/poco/!svn/ver/1801/poco/trunk/Data/ODBC/include/Poco/Data/ODBC/TypeInfo.h
+END
+Utility.h
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/poco/!svn/ver/1801/poco/trunk/Data/ODBC/include/Poco/Data/ODBC/Utility.h
+END
+Binder.h
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/poco/!svn/ver/2024/poco/trunk/Data/ODBC/include/Poco/Data/ODBC/Binder.h
+END
+SessionImpl.h
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/poco/!svn/ver/1801/poco/trunk/Data/ODBC/include/Poco/Data/ODBC/SessionImpl.h
+END
+Diagnostics.h
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/poco/!svn/ver/1801/poco/trunk/Data/ODBC/include/Poco/Data/ODBC/Diagnostics.h
+END
+ODBC.h
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/poco/!svn/ver/2046/poco/trunk/Data/ODBC/include/Poco/Data/ODBC/ODBC.h
+END
+Unicode_WIN32.h
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/poco/!svn/ver/1801/poco/trunk/Data/ODBC/include/Poco/Data/ODBC/Unicode_WIN32.h
+END
+ConnectionHandle.h
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svnroot/poco/!svn/ver/1801/poco/trunk/Data/ODBC/include/Poco/Data/ODBC/ConnectionHandle.h
+END
+Extractor.h
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/poco/!svn/ver/2039/poco/trunk/Data/ODBC/include/Poco/Data/ODBC/Extractor.h
+END
+ODBCStatementImpl.h
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svnroot/poco/!svn/ver/1801/poco/trunk/Data/ODBC/include/Poco/Data/ODBC/ODBCStatementImpl.h
+END
+Preparator.h
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/poco/!svn/ver/2024/poco/trunk/Data/ODBC/include/Poco/Data/ODBC/Preparator.h
+END
+Parameter.h
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/poco/!svn/ver/1801/poco/trunk/Data/ODBC/include/Poco/Data/ODBC/Parameter.h
+END
+EnvironmentHandle.h
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svnroot/poco/!svn/ver/1801/poco/trunk/Data/ODBC/include/Poco/Data/ODBC/EnvironmentHandle.h
+END
+Unicode_UNIXODBC.h
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svnroot/poco/!svn/ver/1801/poco/trunk/Data/ODBC/include/Poco/Data/ODBC/Unicode_UNIXODBC.h
+END
+ODBCException.h
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/poco/!svn/ver/1801/poco/trunk/Data/ODBC/include/Poco/Data/ODBC/ODBCException.h
+END
+Unicode.h
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/poco/!svn/ver/1801/poco/trunk/Data/ODBC/include/Poco/Data/ODBC/Unicode.h
+END

@@ -1,7 +1,7 @@
 //
 // StringTokenizerTest.h
 //
-// $Id: //poco/1.4/Foundation/testsuite/src/StringTokenizerTest.h#1 $
+// $Id: //poco/svn/Foundation/testsuite/src/StringTokenizerTest.h#2 $
 //
 // Definition of the StringTokenizerTest class.
 //
@@ -31,14 +31,11 @@
 // DEALINGS IN THE SOFTWARE.
 //
 
-
 #ifndef StringTokenizerTest_INCLUDED
 #define StringTokenizerTest_INCLUDED
 
-
 #include "Poco/Foundation.h"
 #include "CppUnit/TestCase.h"
-
 
 class StringTokenizerTest: public CppUnit::TestCase
 {
@@ -47,6 +44,7 @@ public:
 	~StringTokenizerTest();
 
 	void testStringTokenizer();
+	void testFind();
 
 	void setUp();
 	void tearDown();
@@ -55,6 +53,5 @@ public:
 
 private:
 };
-
 
 #endif // StringTokenizerTest_INCLUDED

@@ -1,0 +1,1 @@
+/home/leon/MyVideoCollection/poco/Foundation/obj/Linux/x86_64/debug_static/uncompr.o /home/leon/MyVideoCollection/poco/Foundation/obj/Linux/x86_64/release_static/uncompr.o /home/leon/MyVideoCollection/poco/Foundation/obj/Linux/x86_64/debug_shared/uncompr.o /home/leon/MyVideoCollection/poco/Foundation/obj/Linux/x86_64/release_shared/uncompr.o: src/uncompr.c src/zlib.h src/zconf.h

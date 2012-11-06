@@ -1,4 +1,4 @@
-/home/leon/myVideoCollection/poco/Foundation/obj/Linux/x86_64/debug_static/Message.o /home/leon/myVideoCollection/poco/Foundation/obj/Linux/x86_64/release_static/Message.o /home/leon/myVideoCollection/poco/Foundation/obj/Linux/x86_64/debug_shared/Message.o /home/leon/myVideoCollection/poco/Foundation/obj/Linux/x86_64/release_shared/Message.o: src/Message.cpp include/Poco/Message.h \
+/home/leon/MyVideoCollection/poco/Foundation/obj/Linux/x86_64/debug_static/Message.o /home/leon/MyVideoCollection/poco/Foundation/obj/Linux/x86_64/release_static/Message.o /home/leon/MyVideoCollection/poco/Foundation/obj/Linux/x86_64/debug_shared/Message.o /home/leon/MyVideoCollection/poco/Foundation/obj/Linux/x86_64/release_shared/Message.o: src/Message.cpp include/Poco/Message.h \
  include/Poco/Foundation.h include/Poco/Config.h include/Poco/Platform.h \
  include/Poco/Platform_POSIX.h include/Poco/Bugcheck.h \
  include/Poco/Types.h include/Poco/Timestamp.h include/Poco/Exception.h \
