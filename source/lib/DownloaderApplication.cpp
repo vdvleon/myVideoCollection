@@ -48,10 +48,20 @@ namespace MyVideoCollection
 			throw Poco::Exception("Can not find data folder");
 		}
 		dataFolder_.append(config().getString("downloadID") + "/");
-		Poco::File(dataFolder_).createDirectory();
-		if (!findFile(dataFolder_))
-		{	
-			throw Poco::Exception("Can not find data download folder: " + dataFolder_.toString());
+		if (findFile(dataFolder_))
+		{
+			if (config().getString("download", "-") != "-")
+			{
+				throw Poco::Exception("Can not append a download '" + config().getString("download") + "' to an already initialized downloader");
+			}
+		}
+		else
+		{
+			Poco::File(dataFolder_).createDirectory();
+			if (!findFile(dataFolder_))
+			{	
+				throw Poco::Exception("Can not find data download folder: " + dataFolder_.toString());
+			}
 		}
 		
 		// Init

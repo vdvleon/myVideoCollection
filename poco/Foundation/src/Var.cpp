@@ -391,8 +391,15 @@ Var Var::parseObject(const std::string& val, std::string::size_type& pos)
 			skipWhiteSpace(val, pos);
 		}
 	}
+
+	// Bug fix
+	if (pos == val.size() && val[pos - 1] == '}')
+	{
+		return aStruct;
+	}
+
 	if (val[pos] != '}')
-		throw DataFormatException("Unterminated object"); 
+		throw DataFormatException("Unterminated object");
 	++pos;
 	return aStruct;
 }

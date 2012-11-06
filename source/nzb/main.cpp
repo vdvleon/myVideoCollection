@@ -10,8 +10,11 @@
 #include <Poco/Net/HTTPClientSession.h>
 #include <Poco/RegularExpression.h>
 #include <Poco/NumberParser.h>
+#include <Poco/Dynamic/Var.h>
+#include <Poco/Dynamic/Struct.h>
 #include <sstream>
 #include <algorithm>
+#include <MyVideoCollection/JSON.hpp>
 
 class NZBApp : public MyVideoCollection::DownloaderApplication
 {
@@ -104,7 +107,7 @@ class NZBApp : public MyVideoCollection::DownloaderApplication
 			}
 		}
 		
-		bool sendCommandJSON(const std::string & method, Poco::Dynamic::Var & output, const std::vector<std::string> & params = std::vector<std::string>())
+		bool sendCommandJSON(const std::string & method, Poco::Dynamic::Var & output, const std::vector<Poco::Dynamic::Var> & params = std::vector<Poco::Dynamic::Var>())
 		{
 			// Create request
 			Poco::Net::HTTPRequest request(Poco::Net::HTTPRequest::HTTP_POST, "/jsonrpc");
@@ -113,14 +116,17 @@ class NZBApp : public MyVideoCollection::DownloaderApplication
 			request.set("Authorization", "Basic bnpiZ2V0OnRlZ2J6bg==");
 			
 			// Create body
-			std::ostringstream body;
-			body << "{\"method\":\"" << method << "\",\"id\":\"sendCommandJSON\",\"params\":[\"callback\"";
-			for (std::vector<std::string>::const_iterator it = params.begin(); it != params.end(); ++it)
+			Poco::Dynamic::Var body = Poco::Dynamic::Struct<std::string>();
+			body["method"] = method;
+			body["id"] = "sendCommandJSON";
+			std::vector<Poco::Dynamic::Var> params_;
+			params_.push_back("callback");
+			for (std::vector<Poco::Dynamic::Var>::const_iterator it = params.begin(); it != params.end(); ++it)
 			{
-				body << ",\"" << *it << "\"";
+				params_.push_back(*it);
 			}
-			body << "]}";
-			std::string body_ = body.str();
+			body["params"] = params_;
+			std::string body_ = MyVideoCollection::JSON::stringify(body);
 			request.setContentLength(body_.length());
 			
 			// Send request
@@ -142,12 +148,12 @@ class NZBApp : public MyVideoCollection::DownloaderApplication
 			}
 			
 			// Parse JSON
-			output = JSON::parse(response_);
+			output = MyVideoCollection::JSON::parse(response_);
 			
 			// Result?
-			if (!output.isStruct() || !output["result"].isStruct())
+			if (!output.isStruct())
 			{
-				output = Poco::Dynamic::Var();
+				output.empty();
 				return false;
 			}
 			output = output["result"];
@@ -180,40 +186,34 @@ class NZBApp : public MyVideoCollection::DownloaderApplication
 			// TODO
 		}
 		
+		static Poco::Int64 int64PartsGlue(Poco::Int64 low, Poco::Int64 high)
+		{
+			return low + (high * (Poco::Int64)4294967296);
+		}
+		
 		void updateStatus(MyVideoCollection::DownloadStatus & status)
 		{
 			// Get status
 			Poco::Dynamic::Var result, result2;
 			sendCommandJSON("status", result);
 			sendCommandJSON("listgroups", result2);
+			if (!result.isStruct() || !result2.isArray())
+			{
+				std::clog << "LOG: invalid types in status update" << std::endl;
+				return;
+			}
 			
-			// Status
+			// Vars
 			// status.status =
-			
-			// Speed
 			status.downloadSpeed = result["DownloadRate"];
-			
-			// Total
-			status.total = status.size + get(result2, "FileSizeLo") | get(result2, "FileSizeHi") << 32;
-			
-			// So far
-			status.size = status.total - (get(result2, "RemainingSizeLo") | get(result2, "RemainingSizeHi") << 32);
+			status.total = int64PartsGlue(result2[0]["FileSizeLo"], result2[0]["FileSizeHi"]);
+			status.size = status.total - int64PartsGlue(result2[0]["RemainingSizeLo"], result2[0]["RemainingSizeHi"]);
 			
 			// Progress
 			status.progress = ((double)status.size / (double)status.total) * 100.0;
 			
 			// Remaining time
-			status.remainingTime = (status.total * get(result, "DownloadTimeSec")) / status.size;
-			
-			
-			for (std::map<std::string, Poco::Int64>::iterator it = result.begin(); it != result.end(); ++it)
-			{
-				std::clog << "[" << it->first << "] = " << it->second << std::endl;
-			}
-			for (std::map<std::string, Poco::Int64>::iterator it = result2.begin(); it != result2.end(); ++it)
-			{
-				std::clog << "[" << it->first << "] = " << it->second << std::endl;
-			}
+			status.remainingTime = (status.total * result["DownloadTimeSec"]) / status.size;
 			
 			// TODO
 		}

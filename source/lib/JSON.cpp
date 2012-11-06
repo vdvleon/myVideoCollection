@@ -1,44 +1,22 @@
 #include <MyVideoCollection/JSON.hpp>
-#include <Poco/JSON/DefaultHandler.h>
-#include <Poco/JSON/Parser.h>
-#include <Poco/JSON/Stringifier.h>
+#include <Poco/StreamCopier.h>
 
 namespace MyVideoCollection
 {
-	Poco::Dynamic::Var JSON::parse(const std::istream & stream)
+	Poco::Dynamic::Var JSON::parse(std::istream & stream)
 	{
-		// Init parser
-		Poco::JSON::DefaultHandler handler;
-		Poco::JSON::Parser parser;
-		parser.setHandler(&handler);
-		
-		// Parse
-		parser.parse(stream);
-		
-		// Return result
-		return handler.result();
+		std::string str;
+		Poco::StreamCopier::copyToString(stream, str);
+		return parse(str);
 	}
 	
 	Poco::Dynamic::Var JSON::parse(const std::string & str)
 	{
-		// Init parser
-		Poco::JSON::DefaultHandler handler;
-		Poco::JSON::Parser parser;
-		parser.setHandler(&handler);
-		
-		// Parse
-		parser.parse(str);
-		
-		// Return result
-		return handler.result();
+		return Poco::Dynamic::Var::parse(str);
 	}
 	
-	std::string JSON::stringify(const Dynamic::Var & any, std::size_t indent)
+	std::string JSON::stringify(const Poco::Dynamic::Var & any)
 	{
-		// Stringify
-		std::ostringstream ss;
-		Poco::JSON::Stringifier::stringify(any, ss, indent);
-		
-		return ss.str();
+		return Poco::Dynamic::Var::toString(any);
 	}
 };

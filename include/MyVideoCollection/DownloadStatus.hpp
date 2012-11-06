@@ -1,6 +1,7 @@
 #ifndef MyVideoCollection_DownloadStatus__
 #define MyVideoCollection_DownloadStatus__
 
+#include <Poco/Types.h>
 #include <iostream>
 
 namespace MyVideoCollection
@@ -21,8 +22,8 @@ namespace MyVideoCollection
 		Status status;
 		std::size_t downloadSpeed; // bytes a second
 		double progress; // progress in percentage
-		std::size_t size; // loaded size in bytes
-		std::size_t total; // total size in bytes
+		Poco::Int64 size; // loaded size in bytes
+		Poco::Int64 total; // total size in bytes
 		std::size_t remainingTime; // in seconds
 		
 		// Functions

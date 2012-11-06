@@ -8,9 +8,9 @@ namespace MyVideoCollection
 	class JSON
 	{
 		public:
-			static Poco::Dynamic::Var parse(const std::istream & stream);
+			static Poco::Dynamic::Var parse(std::istream & stream);
 			static Poco::Dynamic::Var parse(const std::string & str);
-			static std::string stringify(const Dynamic::Var & any, std::size_t indent = 0);
+			static std::string stringify(const Poco::Dynamic::Var & any);
 	};
 };
 

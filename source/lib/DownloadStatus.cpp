@@ -48,10 +48,10 @@ namespace MyVideoCollection
 			progress = Poco::NumberParser::parseFloat(line.substr(m[3].offset, m[3].length));
 			
 			// Size
-			size = Poco::NumberParser::parseUnsigned64(line.substr(m[4].offset, m[4].length));
+			size = Poco::NumberParser::parse64(line.substr(m[4].offset, m[4].length));
 			
 			// Total
-			total = Poco::NumberParser::parseUnsigned64(line.substr(m[5].offset, m[5].length));
+			total = Poco::NumberParser::parse64(line.substr(m[5].offset, m[5].length));
 			
 			// Total
 			remainingTime = Poco::NumberParser::parseUnsigned64(line.substr(m[6].offset, m[6].length));

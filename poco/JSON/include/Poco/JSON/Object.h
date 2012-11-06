@@ -319,6 +319,11 @@ public:
 		return false;
 	}
 
+	bool isStruct() const
+	{
+		return false;
+	}
+
 	bool isInteger() const
 	{
 		return false;
