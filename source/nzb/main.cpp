@@ -1,21 +1,21 @@
 #include <MyVideoCollection/DownloaderApplication.hpp>
 #include <Poco/Net/ServerSocket.h>
 #include <Poco/Process.h>
+#include <Poco/Pipe.h>
 #include <Poco/NumberFormatter.h>
 
-class Application : public MyVideoCollection::DownloaderApplication
+class NZBApp : public MyVideoCollection::DownloaderApplication
 {
 	protected:
-		void init()
+		void initDownload()
 		{
 			// Find server port
-			std::size_t port = 6800;
-			for (; port < 7800; ++port)
+			for (port_ = 6800; port_ < 7800; ++port_)
 			{
 				try
 				{
 					// Can bind to IP?
-					Poco::Net::ServerSocket socket(Poco::Net::SocketAddress("127.0.0.1", port));
+					Poco::Net::ServerSocket socket(Poco::Net::SocketAddress("127.0.0.1", port_));
 					socket.close();
 					
 					// Stop, found port
@@ -37,11 +37,10 @@ class Application : public MyVideoCollection::DownloaderApplication
 			arguments.push_back("-o"); arguments.push_back("DestDir=" + dataFolder() + "done");
 			arguments.push_back("-o"); arguments.push_back("TempDir=" + dataFolder() + "temp");
 			arguments.push_back("-o"); arguments.push_back("ServerIp=127.0.0.1");
-			arguments.push_back("-o"); arguments.push_back("ServerPort=" + Poco::NumberFormatter::format(port));
-			arguments.push_back("-o"); arguments.push_back("RenameIMG=yes");
+			arguments.push_back("-o"); arguments.push_back("ServerPort=" + Poco::NumberFormatter::format(port_));
 			arguments.push_back("-o"); arguments.push_back("OutputMode=loggable");
 			arguments.push_back("-o"); arguments.push_back("Server1.Level=0");
-			arguments.push_back("-o"); arguments.push_back("Server1.Host=" + config().getString("options.server", "server"));
+			arguments.push_back("-o"); arguments.push_back("Server1.Host=" + config().getString("options.server", "usenet.server"));
 			arguments.push_back("-o"); arguments.push_back("Server1.Port=" + config().getString("options.port", "119"));
 			arguments.push_back("-o"); arguments.push_back("Server1.Username=" + config().getString("options.username", "username"));
 			arguments.push_back("-o"); arguments.push_back("Server1.Password=" + config().getString("options.password", ""));
@@ -50,7 +49,8 @@ class Application : public MyVideoCollection::DownloaderApplication
 			arguments.push_back("-s");
 			
 			// Start download server
-			Poco::Process::launch(config().getString("options.nzbgetBin", "/usr/bin/nzbget"), arguments, 0, 0, 0);
+			Poco::Pipe p1, p2;
+			Poco::Process::launch(config().getString("options.nzbgetBin", "/usr/bin/nzbget"), arguments, 0, &p1, &p2);
 			
 			// Add download?
 			if (config().getString("download", "-") != "-")
@@ -59,16 +59,17 @@ class Application : public MyVideoCollection::DownloaderApplication
 				Poco::Process::Args arguments;
 				arguments.push_back("-n");
 				arguments.push_back("-o"); arguments.push_back("ServerIp=127.0.0.1");
-				arguments.push_back("-o"); arguments.push_back("ServerPort=" + Poco::NumberFormatter::format(port));				
+				arguments.push_back("-o"); arguments.push_back("ServerPort=" + Poco::NumberFormatter::format(port_));
 				arguments.push_back("-o"); arguments.push_back("OutputMode=loggable");
 				arguments.push_back("-A"); arguments.push_back(config().getString("download"));
 				
 				// Run
-				Poco::Process::launch(config().getString("options.nzbgetBin", "/usr/bin/nzbget"), arguments, 0, 0, 0);
+				Poco::Pipe p1, p2;
+				Poco::Process::launch(config().getString("options.nzbgetBin", "/usr/bin/nzbget"), arguments, 0, &p1, &p2);
 			}
 		}
 		
-		void deinit()
+		void deinitDownload()
 		{
 			// TODO
 		}
@@ -97,6 +98,8 @@ class Application : public MyVideoCollection::DownloaderApplication
 		{
 			// TODO
 		}
+		
+		std::size_t port_;
 };
 
-POCO_APP_MAIN(Application)
+POCO_APP_MAIN(NZBApp)

@@ -2,6 +2,7 @@
 #define MyVideoCollection_DownloaderApplication__
 
 #include <Poco/Util/Application.h>
+#include <Poco/Timer.h>
 #include "DownloadStatus.hpp"
 
 namespace MyVideoCollection
@@ -20,8 +21,8 @@ namespace MyVideoCollection
 			
 		protected:
 			int main(const std::vector <std::string> & args);
-			virtual void init();
-			virtual void deinit();
+			virtual void initDownload();
+			virtual void deinitDownload();
 			virtual void continueDownload();
 			virtual void pauseDownload();
 			virtual void stopDownload();
@@ -29,6 +30,7 @@ namespace MyVideoCollection
 			virtual void updateStatus(DownloadStatus & status);
 			std::string dataFolder() const;
 			void defineOptions(Poco::Util::OptionSet & options);
+			void onProgressTimer(Poco::Timer & timer);
 		
 		private:
 			void handleHelp(const std::string& name, const std::string& value);
@@ -36,6 +38,8 @@ namespace MyVideoCollection
 			
 			Poco::Path dataFolder_;
 			bool help_;
+			Poco::Timer progressTimer_;
+			DownloadStatus status_;
 	};
 };
 
