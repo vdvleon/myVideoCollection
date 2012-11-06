@@ -200,6 +200,8 @@ class NZBApp : public MyVideoCollection::DownloaderApplication
 		
 		static Poco::Int64 int64PartsGlue(Poco::Int64 low, Poco::Int64 high)
 		{
+			std::clog << "int64PartsGlue(" << low << ", " << high << ") = " << (low | (high << 32)) << std::endl;
+			
 			return low | (high << 32);
 		}
 		
