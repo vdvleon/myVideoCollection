@@ -224,8 +224,16 @@ class NZBApp : public MyVideoCollection::DownloaderApplication
 				status.total = int64PartsGlue(result2[0]["FileSizeLo"], result2[0]["FileSizeHi"]);
 				status.size = status.total - int64PartsGlue(result2[0]["RemainingSizeLo"], result2[0]["RemainingSizeHi"]);
 			}
-			status.progress = ((double)status.size / (double)status.total) * 100.0;
-			status.remainingTime = (status.total * result["DownloadTimeSec"]) / status.size;
+			if (status.total == 0)
+			{
+				status.progress = 100.0;
+				status.remainingTime = 0;
+			}
+			else
+			{
+				status.progress = ((double)status.size / (double)status.total) * 100.0;
+				status.remainingTime = (status.total * result["DownloadTimeSec"]) / status.size;
+			}
 			
 			// Status
 			if (result["ServerPaused"])
