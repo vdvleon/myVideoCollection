@@ -38,6 +38,14 @@ torrent: build
 nzb: build
 	$(CC) $(INCS) $(LIBS_PATH) -o build/MyVideoCollection-nzb source/nzb/main.cpp -lMyVideoCollection -lPocoFoundation -lPocoUtil -lPocoNet -lPocoXML -lPocoCrypto -lPocoJSON
 
-nzb-test:
-	rm -R data/123
-	LD_LIBRARY_PATH=:poco/lib/Linux/x86_64:build ./build/MyVideoCollection-nzb -i123 -r100 -oserver=newsreader100.eweka.nl -ousername=538209 -opassword=4xqn6w -ds3.nzb
+nzb-test1:
+	rm -R -f data/test1
+	LD_LIBRARY_PATH=:poco/lib/Linux/x86_64:build valgrind ./build/MyVideoCollection-nzb -itest1 -r100 -oserver=newsreader100.eweka.nl -ousername=538209 -opassword=4xqn6w -dtest1.nzb
+
+nzb-test2:
+	rm -R -f data/test2
+	LD_LIBRARY_PATH=:poco/lib/Linux/x86_64:build valgrind ./build/MyVideoCollection-nzb -itest2 -r100 -oserver=newsreader100.eweka.nl -ousername=538209 -opassword=4xqn6w -dtest2.nzb
+
+nzb-test3:
+	rm -R -f data/test3
+	LD_LIBRARY_PATH=:poco/lib/Linux/x86_64:build valgrind ./build/MyVideoCollection-nzb -itest3 -r100 -oserver=newsreader100.eweka.nl -ousername=538209 -opassword=4xqn6w -dtest3.nzb

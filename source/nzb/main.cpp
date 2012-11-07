@@ -51,6 +51,7 @@ class NZBApp : public MyVideoCollection::DownloaderApplication
 			arguments.push_back("-o"); arguments.push_back("ServerIp=0.0.0.0"); // 127.0.0.1");
 			arguments.push_back("-o"); arguments.push_back("ServerPort=" + Poco::NumberFormatter::format(port_));
 			arguments.push_back("-o"); arguments.push_back("OutputMode=loggable");
+			arguments.push_back("-o"); arguments.push_back("DownloadRate=" + config().getString("downloadRate", "0"));
 			arguments.push_back("-o"); arguments.push_back("Server1.Level=0");
 			arguments.push_back("-o"); arguments.push_back("Server1.Host=" + config().getString("options.server", "usenet.server"));
 			arguments.push_back("-o"); arguments.push_back("Server1.Port=" + config().getString("options.port", "119"));
@@ -69,9 +70,14 @@ class NZBApp : public MyVideoCollection::DownloaderApplication
 			{
 				// Start download
 				Poco::Process::Args arguments; arguments.push_back("-A"); arguments.push_back(config().getString("download"));
-				std::string output;
-				sendCommand(arguments, output);
+				sendCommand(arguments);
 			}
+		}
+		
+		inline bool sendCommand(const Poco::Process::Args & extraArguments)
+		{
+			std::string str;
+			return sendCommand(extraArguments, str);
 		}
 		
 		bool sendCommand(const Poco::Process::Args & extraArguments, std::string & output)
@@ -105,6 +111,12 @@ class NZBApp : public MyVideoCollection::DownloaderApplication
 				
 				return true;
 			}
+		}
+		
+		inline bool sendCommandJSON(const std::string & method, const std::vector<Poco::Dynamic::Var> & params = std::vector<Poco::Dynamic::Var>())
+		{
+			Poco::Dynamic::Var output;
+			return sendCommandJSON(method, output, params);
 		}
 		
 		bool sendCommandJSON(const std::string & method, Poco::Dynamic::Var & output, const std::vector<Poco::Dynamic::Var> & params = std::vector<Poco::Dynamic::Var>())
@@ -199,23 +211,41 @@ class NZBApp : public MyVideoCollection::DownloaderApplication
 			sendCommandJSON("listgroups", result2);
 			if (!result.isStruct() || !result2.isArray())
 			{
-				std::clog << "LOG: invalid types in status update" << std::endl;
+				// Error
+				status.status = MyVideoCollection::DownloadStatus::ERROR;
+				
 				return;
 			}
 			
 			// Vars
-			// status.status =
 			status.downloadSpeed = result["DownloadRate"];
-			status.total = int64PartsGlue(result2[0]["FileSizeLo"], result2[0]["FileSizeHi"]);
-			status.size = status.total - int64PartsGlue(result2[0]["RemainingSizeLo"], result2[0]["RemainingSizeHi"]);
-			
-			// Progress
+			if (result2.extract< std::vector<Poco::Dynamic::Var> >().size() > 0)
+			{
+				status.total = int64PartsGlue(result2[0]["FileSizeLo"], result2[0]["FileSizeHi"]);
+				status.size = status.total - int64PartsGlue(result2[0]["RemainingSizeLo"], result2[0]["RemainingSizeHi"]);
+			}
 			status.progress = ((double)status.size / (double)status.total) * 100.0;
-			
-			// Remaining time
 			status.remainingTime = (status.total * result["DownloadTimeSec"]) / status.size;
 			
-			// TODO
+			// Status
+			if (result["ServerPaused"])
+			{
+				status.status = MyVideoCollection::DownloadStatus::PAUSED;
+			}
+			else
+			{
+				status.status = MyVideoCollection::DownloadStatus::BUSY;
+			}
+			if (result["ServerStandBy"])
+			{
+				status.size = status.total;
+				status.progress = 100.0;
+				status.status = MyVideoCollection::DownloadStatus::FINISHED;
+				if (result["ParJobCount"] > 0)
+				{
+					status.status = MyVideoCollection::DownloadStatus::PROCESSING;
+				}
+			}
 		}
 		
 		std::size_t port_;

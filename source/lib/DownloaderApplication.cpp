@@ -48,7 +48,7 @@ namespace MyVideoCollection
 			throw Poco::Exception("Can not find data folder");
 		}
 		dataFolder_.append(config().getString("downloadID") + "/");
-		if (findFile(dataFolder_))
+		if (Poco::File(dataFolder_).exists())
 		{
 			if (config().getString("download", "-") != "-")
 			{
@@ -58,10 +58,6 @@ namespace MyVideoCollection
 		else
 		{
 			Poco::File(dataFolder_).createDirectory();
-			if (!findFile(dataFolder_))
-			{	
-				throw Poco::Exception("Can not find data download folder: " + dataFolder_.toString());
-			}
 		}
 		
 		// Init

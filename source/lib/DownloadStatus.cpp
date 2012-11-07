@@ -15,7 +15,8 @@ namespace MyVideoCollection
 	
 	void DownloadStatus::write(std::ostream & out)
 	{
-		out << (short)status << " " << downloadSpeed << " " << std::showpoint << progress << " " << size << " " << total << " " << remainingTime << std::endl << std::flush;
+		out.precision(2);
+		out << (short)status << " " << downloadSpeed << " " << std::showpoint << std::fixed << progress << " " << size << " " << total << " " << remainingTime << std::endl << std::flush;
 	}
 	
 	void DownloadStatus::read(std::istream & in)

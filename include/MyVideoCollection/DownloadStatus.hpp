@@ -15,7 +15,8 @@ namespace MyVideoCollection
 			ERROR = 1,
 			BUSY = 2,
 			PAUSED = 3,
-			FINISHED = 4
+			FINISHED = 4,
+			PROCESSING = 5
 		};
 		
 		// Vars
